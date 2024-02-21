@@ -1,0 +1,3400 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "ILG WMS Schema documentation.",
+        "description": "ILG Provides the capability to integrate with ILG's warehouse management system. It supports the inbound requests for -\n\nThe authentication achieved is using the API key which will need to be requested from ILG support (email to [itsupport@ilguk.com](https://mailto:itsupport@ilguk.com))",
+        "termsOfService": "https://www.international-logistics-group.com/",
+        "contact": {
+            "email": "itsupport@ilguk.com"
+        },
+        "version": "1.0"
+    },
+    "externalDocs": {
+        "description": "Please contact a member of the ILG support",
+        "url": "https://mailto:itsupport@ilguk.com"
+    },
+    "servers": [
+        {
+            "url": "https://ilg372042.jitterbit.eu/apis-dev/2"
+        }
+    ],
+    "tags": [
+        {
+            "name": "API",
+            "description": "ILG WMS API V2.0 Provides the capability to integrate with ILG's warehouse management system.",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": ""
+            }
+        },
+        {
+            "name": "Schema reference",
+            "description": "ILG's common data model schemas for mapping purposes across all interface types"
+        }
+    ],
+    "paths": {
+        "/json-examples": {
+            "options": {
+                "tags": [
+                    "Schema reference"
+                ],
+                "summary": "API json schema reference and examples",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "-": {
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "operationId": "json-examples",
+                "requestBody": {
+                    "description": "ILG json examples for schema reference to field defenitions pleae see json-examples",
+                    "content": {
+                        "goodsOut-req": {
+                            "schema": {
+                                "$ref": "#/components/schemas/goodsOut-req"
+                            }
+                        },
+                        "goodsOut-conf": {
+                            "schema": {
+                                "$ref": "#/components/schemas/goodsOut-conf"
+                            }
+                        },
+                        "goodsIn-req": {
+                            "schema": {
+                                "$ref": "#/components/schemas/goodsIn-req"
+                            }
+                        },
+                        "goodsIn-conf": {
+                            "schema": {
+                                "$ref": "#/components/schemas/goodsIn-conf"
+                            }
+                        },
+                        "masterData-req": {
+                            "schema": {
+                                "$ref": "#/components/schemas/masterData-req"
+                            }
+                        },
+                        "stockMovement": {
+                            "schema": {
+                                "$ref": "#/components/schemas/stockMovement"
+                            }
+                        },
+                        "return-req": {
+                            "schema": {
+                                "$ref": "#/components/schemas/return-req"
+                            }
+                        },
+                        "return-conf": {
+                            "schema": {
+                                "$ref": "#/components/schemas/return-conf"
+                            }
+                        },
+                        "workOrder-req": {
+                            "schema": {
+                                "$ref": "#/components/schemas/workOrder-req"
+                            }
+                        },
+                        "workOrder-conf": {
+                            "schema": {
+                                "$ref": "#/components/schemas/workOrder-conf"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/csv-examples": {
+            "options": {
+                "tags": [
+                    "Schema reference"
+                ],
+                "summary": "Non API csv schema examples",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "-": {
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "operationId": "csv-examples",
+                "requestBody": {
+                    "description": "ILG csv examples for schema reference to field defenitions pleae see json-examples",
+                    "content": {
+                        "goodsOut-req": {
+                            "schema": {
+                                "$ref": "#/components/schemas/goodsOut-req-csv"
+                            }
+                        },
+                        "goodsOut-conf": {
+                            "schema": {
+                                "$ref": "#/components/schemas/goodsOut-conf-csv"
+                            }
+                        },
+                        "goodsIn-req": {
+                            "schema": {
+                                "$ref": "#/components/schemas/goodsIn-req-csv"
+                            }
+                        },
+                        "goodsIn-conf": {
+                            "schema": {
+                                "$ref": "#/components/schemas/goodsIn-conf-csv"
+                            }
+                        },
+                        "masterData-req": {
+                            "schema": {
+                                "$ref": "#/components/schemas/masterData-req-csv"
+                            }
+                        },
+                        "stockMovement": {
+                            "schema": {
+                                "$ref": "#/components/schemas/stockMovement-csv"
+                            }
+                        },
+                        "return-req": {
+                            "schema": {
+                                "$ref": "#/components/schemas/return-req-csv"
+                            }
+                        },
+                        "return-conf": {
+                            "schema": {
+                                "$ref": "#/components/schemas/return-conf-csv"
+                            }
+                        },
+                        "workOrder-req": {
+                            "schema": {
+                                "$ref": "#/components/schemas/workOrder-req-csv"
+                            }
+                        },
+                        "workOrder-conf": {
+                            "schema": {
+                                "$ref": "#/components/schemas/workOrder-conf-csv"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/wms/goodsOut": {
+            "post": {
+                "tags": [
+                    "API"
+                ],
+                "summary": "create new shipments from orders",
+                "description": "Add a new shipment",
+                "operationId": "addGoodsOut",
+                "requestBody": {
+                    "description": "Create a new shipment",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/goodsOut-req"
+                            }
+                        },
+                        "text/csv": {
+                            "schema": {
+                                "$ref": "#/components/schemas/goodsOut-req-csv"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/success"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Authentication error"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": [
+                            "write:api_key",
+                            "read:api_key"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/wms/goodsIn": {
+            "post": {
+                "tags": [
+                    "API"
+                ],
+                "summary": "Create new receipts from ASN or PO records",
+                "description": "Add a new receipt",
+                "operationId": "addGoodsIn",
+                "requestBody": {
+                    "description": "Create a new receipt",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/goodsIn-req"
+                            }
+                        },
+                        "text/csv": {
+                            "schema": {
+                                "$ref": "#/components/schemas/goodsIn-req-csv"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "202": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/success"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Authentication error"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": [
+                            "write:api_key",
+                            "read:api_key"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/wms/masterData": {
+            "post": {
+                "tags": [
+                    "API"
+                ],
+                "summary": "Submit product information",
+                "description": "Adds new products",
+                "operationId": "addMasterData",
+                "requestBody": {
+                    "description": "Submits product information",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/masterData-req"
+                            }
+                        },
+                        "text/csv": {
+                            "schema": {
+                                "$ref": "#/components/schemas/masterData-req-csv"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "202": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/success"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Authentication error"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": [
+                            "write:api_key",
+                            "read:api_key"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/wms/returns": {
+            "post": {
+                "tags": [
+                    "API"
+                ],
+                "summary": "Submit returns",
+                "description": "Adds new returns",
+                "operationId": "addReturns",
+                "requestBody": {
+                    "description": "Submits returns information",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/return-req"
+                            }
+                        },
+                        "text/csv": {
+                            "schema": {
+                                "$ref": "#/components/schemas/return-req-csv"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "202": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/success"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Authentication error"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": [
+                            "write:api_key",
+                            "read:api_key"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/wms/workorders": {
+            "post": {
+                "tags": [
+                    "API"
+                ],
+                "summary": "Submit workorders",
+                "description": "Adds new workorders",
+                "operationId": "addWorkOrders",
+                "requestBody": {
+                    "description": "Submits workorders information",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/workOrder-req"
+                            }
+                        },
+                        "text/csv": {
+                            "schema": {
+                                "$ref": "#/components/schemas/workOrder-req-csv"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "202": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/success"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Authentication error"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": [
+                            "write:api_key",
+                            "read:api_key"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/wms/customer/{AccountID}/stock": {
+            "get": {
+                "tags": [
+                    "API"
+                ],
+                "summary": "Finds stock by AccountID",
+                "description": "returns stock records using wms accountID",
+                "operationId": "getStockbyAccountID",
+                "parameters": [
+                    {
+                        "name": "AccountID",
+                        "in": "path",
+                        "description": "ILGs AccountID",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "ILG"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/masterData-req"
+                                    }
+                                }
+                            },
+                            "text/csv": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/masterData-req-csv"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid AccountID value"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": [
+                            "write:api_key",
+                            "read:api_key"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "goodsOut-req": {
+                "type": "object",
+                "properties": {
+                    "oOrders": {
+                        "items": {
+                            "properties": {
+                                "AccountID": {
+                                    "description": "ILG Customer Account",
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "Addresses": {
+                                    "items": {
+                                        "properties": {
+                                            "Add1": {
+                                                "description": "Address Line 1 Required (RM has a limit of 35, DPD limit of 30)",
+                                                "example": "13 Hargreaves Ave",
+                                                "maxLength": 50,
+                                                "type": "string"
+                                            },
+                                            "Add2": {
+                                                "description": "Address Line 2  Usually included but not required",
+                                                "example": "BigTown",
+                                                "maxLength": 50,
+                                                "type": "string"
+                                            },
+                                            "Add3": {
+                                                "description": "Address Line 3",
+                                                "example": "Nr Waitrose",
+                                                "maxLength": 50,
+                                                "type": "string"
+                                            },
+                                            "AddType": {
+                                                "description": "Address Type",
+                                                "enum": [
+                                                    "SHIP",
+                                                    "SUPP",
+                                                    "BILL"
+                                                ],
+                                                "example": "SHIP",
+                                                "maxLength": 5,
+                                                "type": "string"
+                                            },
+                                            "City": {
+                                                "description": "City/Town",
+                                                "example": "Crawley",
+                                                "maxLength": 50,
+                                                "type": "string"
+                                            },
+                                            "Country": {
+                                                "description": "Country name in Full (Not required but usually included)",
+                                                "example": "United Kingdom",
+                                                "maxLength": 50,
+                                                "type": "string"
+                                            },
+                                            "CountryCode": {
+                                                "description": "2 character ISO County code (Required) e.g GB",
+                                                "example": "GB",
+                                                "maxLength": 2,
+                                                "type": "string"
+                                            },
+                                            "Email": {
+                                                "description": "Email Required if Address Type = SHIP",
+                                                "example": "ME@mydomain.com",
+                                                "maxLength": 50,
+                                                "type": "string"
+                                            },
+                                            "Firstname": {
+                                                "description": "First Name Required if Address Type = SHIP",
+                                                "example": "Julio",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "Lastname": {
+                                                "description": "Last Name Required if Address Type = SHIP",
+                                                "example": "Stavros",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "Mobile": {
+                                                "description": "Mobile Number",
+                                                "example": "07323 323564",
+                                                "maxLength": 20,
+                                                "type": "string"
+                                            },
+                                            "Name": {
+                                                "description": "Company or Fullname of recipient ",
+                                                "example": "The Clothing Company",
+                                                "maxLength": 50,
+                                                "type": "string"
+                                            },
+                                            "Phone": {
+                                                "description": "Primary Phone number (required for delivery)",
+                                                "example": "0181 333 2233",
+                                                "maxLength": 20,
+                                                "type": "string"
+                                            },
+                                            "Postcode": {
+                                                "description": "Postcode/Zip code",
+                                                "example": "RH10 1XY",
+                                                "maxLength": 20,
+                                                "type": "string"
+                                            },
+                                            "State": {
+                                                "description": "State/County (Should be 2 letter state code for USA address)",
+                                                "example": "West Sussex",
+                                                "maxLength": 230,
+                                                "type": "string"
+                                            },
+                                            "Title": {
+                                                "example": "Mr",
+                                                "maxLength": 10,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "AddType",
+                                            "Firstname",
+                                            "Lastname",
+                                            "Email",
+                                            "Name",
+                                            "Add1",
+                                            "City",
+                                            "CountryCode",
+                                            "Phone"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "Brand": {
+                                    "description": "Single ILG Customer can have multiple brands that might require specific operational treatment",
+                                    "example": "MyFirstBrand",
+                                    "maxLength": 20,
+                                    "type": "string"
+                                },
+                                "Carrier": {
+                                    "description": "Specific Carrier; (usually blank)",
+                                    "example": "UPS",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "Cfields": {
+                                    "items": {
+                                        "properties": {
+                                            "Field": {
+                                                "description": "Custom Name of field",
+                                                "example": "GIFT1",
+                                                "maxLength": 10,
+                                                "type": "string"
+                                            },
+                                            "FldType": {
+                                                "description": "string, number or attachment",
+                                                "enum": [
+                                                    "STRING",
+                                                    "NUM",
+                                                    "BOOL",
+                                                    "ATT"
+                                                ],
+                                                "example": "ATT",
+                                                "maxLength": 10,
+                                                "type": "string"
+                                            },
+                                            "FValue": {
+                                                "description": "Data value - entered as string but validated as required by DataType",
+                                                "example": "Happy Christmas Peter",
+                                                "maxLength": 200,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "Channel": {
+                                    "description": "Order Source from the ILG Customer's perspective (ShopEU,ShopUK,NetSuite)",
+                                    "example": "ShopEU",
+                                    "maxLength": 20,
+                                    "type": "string"
+                                },
+                                "Class": {
+                                    "description": "Class of Service Ecom,Wholesale,P,EVAS,WVAS,OTHER",
+                                    "enum": [
+                                        "ECOM",
+                                        "WS",
+                                        "EVAS",
+                                        "WSVAS",
+                                        "PR",
+                                        "OTHER"
+                                    ],
+                                    "example": "ECOM",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "CorrelationID": {
+                                    "description": "INTERNAL FOR ILG USE DO NOT POPULATE",
+                                    "example": "9ed2b057-342f-4838-860b-4ac37fddf007",
+                                    "maxLength": 250,
+                                    "type": "string"
+                                },
+                                "CreatedDate": {
+                                    "description": "Order Creation Date (UTC Format)",
+                                    "example": "2022-01-27T13:29:59Z",
+                                    "type": "string"
+                                },
+                                "DDP": {
+                                    "description": "Intl Deliveries only  Default 0 -duties paid local customs reponse, or 1 -Duty paid at point of booking (WHERE POSSIBLE)",
+                                    "example": 1,
+                                    "type": "number"
+                                },
+                                "DueOutDate": {
+                                    "description": "Target Due out date",
+                                    "example": "2022-01-28",
+                                    "type": "string"
+                                },
+                                "EntityID": {
+                                    "description": "ILG Use, Copy of field that uniquely identifies this record. E.g., OrderNumber",
+                                    "example": "SO238812",
+                                    "maxLength": 50,
+                                    "type": "string"
+                                },
+                                "ExpDelDate": {
+                                    "description": "Expected Delivery Date",
+                                    "example": "2022-01-28",
+                                    "type": "string"
+                                },
+                                "InsValue": {
+                                    "description": "Insurance Value",
+                                    "example": 1.24,
+                                    "type": "number"
+                                },
+                                "LocationID": {
+                                    "description": "ILG Warehouse ID",
+                                    "example": "NORTHAMPTON",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "Notes": {
+                                    "description": "Optional order comment field,  Exception to normal order processing)",
+                                    "example": "Special order to VIP",
+                                    "maxLength": 250,
+                                    "type": "string"
+                                },
+                                "oOrderLines": {
+                                    "items": {
+                                        "properties": {
+                                            "AltLineID": {
+                                                "description": "Alternate/Secondary line - Sometimes required for BTB or EDI orders",
+                                                "example": 13,
+                                                "type": "number"
+                                            },
+                                            "AltProductID": {
+                                                "description": "Secondary Product ID (As reference)",
+                                                "example": "JG668872",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "Cfields": {
+                                                "items": {
+                                                    "properties": {
+                                                        "Field": {
+                                                            "description": "Custom Name of field",
+                                                            "example": "GIFT1",
+                                                            "maxLength": 10,
+                                                            "type": "string"
+                                                        },
+                                                        "FldType": {
+                                                            "description": "string, number or attachment",
+                                                            "enum": [
+                                                                "STRING",
+                                                                "NUM",
+                                                                "BOOL",
+                                                                "ATT"
+                                                            ],
+                                                            "example": "ATT",
+                                                            "maxLength": 10,
+                                                            "type": "string"
+                                                        },
+                                                        "FValue": {
+                                                            "description": "Data value - entered as string but validated as required by DataType",
+                                                            "example": "Happy Christmas Peter",
+                                                            "maxLength": 200,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "LineNumber": {
+                                                "description": "Linenumber from Sales order, this is Usually unique for the customer and needs to be if later editing is required via API",
+                                                "example": 1,
+                                                "type": "number"
+                                            },
+                                            "OtherLineTotal": {
+                                                "description": "Other Line Value (Qty x OtherUnit Price)",
+                                                "example": 29.28,
+                                                "type": "number"
+                                            },
+                                            "OtherUnitPrice": {
+                                                "description": "For customs E.g. where sales price is 0 but customs declaration <>0 ",
+                                                "example": 2.44,
+                                                "type": "number"
+                                            },
+                                            "ProductID": {
+                                                "description": "Product (SKU) must match Master data primary product in WMS",
+                                                "example": "10056758",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "Qty": {
+                                                "description": "Quantity",
+                                                "example": 12,
+                                                "type": "number"
+                                            },
+                                            "SalesLineTotal": {
+                                                "description": "Line Sales Value (Qty x SalesUnitPrice)",
+                                                "example": 414.6,
+                                                "type": "number"
+                                            },
+                                            "SalesUnitPrice": {
+                                                "description": "Sales Line Unit Price (Multiplied by Qty to give SalesLinetotal - Values in SalesCurr)",
+                                                "example": 34.55,
+                                                "type": "number"
+                                            },
+                                            "UoM": {
+                                                "description": "Mainly for wholesale could be Each, Inner, Outer, Pack",
+                                                "enum": [
+                                                    "EACH",
+                                                    "INNER",
+                                                    "OUTER"
+                                                ],
+                                                "example": "EACH",
+                                                "maxLength": 5,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "LineNumber",
+                                            "ProductID",
+                                            "UoM",
+                                            "Qty",
+                                            "SalesUnitPrice",
+                                            "SalesLineTotal"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "OrdNumber": {
+                                    "description": "Primary customer ordernumber (should be unique from the customer's viewpoint) UPPER",
+                                    "example": "SO238812",
+                                    "maxLength": 20,
+                                    "type": "string"
+                                },
+                                "OrdRef1": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "XD33093",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdRef2": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "AOS687668783",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdRef3": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "TEST",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdType": {
+                                    "description": "Type of Order, E.g. SO (Sales order)  TO (Outbound Transfer Order)",
+                                    "enum": [
+                                        "SO",
+                                        "TOO"
+                                    ],
+                                    "example": "SO",
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "OtherCurr": {
+                                    "description": "Currency for Insurance and OTHER Values on the order (E.g., Customs Value) UPPER ISO",
+                                    "example": "GBP",
+                                    "maxLength": 3,
+                                    "type": "string"
+                                },
+                                "OtherValue": {
+                                    "description": "Order Value for Customs",
+                                    "example": 1.24,
+                                    "type": "number"
+                                },
+                                "Priority": {
+                                    "description": "Priority of order - NORM (Default)",
+                                    "enum": [
+                                        "NORM",
+                                        "URGNT",
+                                        "HIGH"
+                                    ],
+                                    "example": "NORM",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "ReqType": {
+                                    "description": "Request Type - New or Update",
+                                    "enum": [
+                                        "NEW",
+                                        "UPD"
+                                    ],
+                                    "example": "NEW",
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "RetailID": {
+                                    "description": "Usually for BTB Customer to identify regular delivery customers that may require specific handling/Ops procedures (ECOM, ASOS)",
+                                    "example": "ECOM",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "SalesCurr": {
+                                    "description": "Sales Currency UPPER ISO",
+                                    "example": "GBP",
+                                    "maxLength": 3,
+                                    "type": "string"
+                                },
+                                "SalesValue": {
+                                    "description": "Sales Value (usually the sum of SalesLineTotals from order lines)",
+                                    "example": 1232.44,
+                                    "type": "number"
+                                },
+                                "Service": {
+                                    "description": "Shipping Service level Eg.   NextDay  Sameday, IntlExpress, IntlRoad",
+                                    "enum": [
+                                        "NextDay",
+                                        "SameDay",
+                                        "UK48",
+                                        "IntExp",
+                                        "IntStd"
+                                    ],
+                                    "example": "NextDay",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "StockPool": {
+                                    "description": "Customers WMS Stock Pool",
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "Summary": {
+                                    "description": "Summary order header info (E.g., Order level summary of goods for customs)",
+                                    "example": "Ladies Outerwear",
+                                    "maxLength": 200,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "AccountID",
+                                "Class",
+                                "LocationID",
+                                "StockPool",
+                                "OrdType",
+                                "ReqType",
+                                "Service",
+                                "RetailID",
+                                "OrdNumber",
+                                "OrdRef1",
+                                "SalesCurr",
+                                "Addresses"
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
+            },
+            "goodsOut-conf": {
+                "type": "object",
+                "properties": {
+                    "GOResp": {
+                        "items": {
+                            "properties": {
+                                "AccountID": {
+                                    "description": "ILG Customer Account",
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "Brand": {
+                                    "description": "Single ILG Customer can have multiple brands that might require specific operational treatment",
+                                    "example": "MyFirstBrand",
+                                    "maxLength": 20,
+                                    "type": "string"
+                                },
+                                "Carrier": {
+                                    "description": "Specific Carrier; (usually blank)",
+                                    "example": "UPS",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "Class": {
+                                    "description": "Class of Service Ecom,Wholesale,P,EVAS,WVAS,OTHER",
+                                    "enum": [
+                                        "ECOM",
+                                        "WS",
+                                        "EVAS",
+                                        "WSVAS",
+                                        "PR",
+                                        "OTHER"
+                                    ],
+                                    "example": "ECOM",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "CorrelationID": {
+                                    "description": "INTERNAL FOR ILG USE DO NOT POPULATE",
+                                    "example": "9ed2b057-342f-4838-860b-4ac37fddf007",
+                                    "maxLength": 250,
+                                    "type": "string"
+                                },
+                                "CreatedDate": {
+                                    "description": "Order Creation Date (UTC Format)",
+                                    "example": "2022-01-27T13:29:59Z",
+                                    "type": "string"
+                                },
+                                "DueOutDate": {
+                                    "description": "Target Due out date",
+                                    "example": "2022-01-28",
+                                    "type": "string"
+                                },
+                                "EntityID": {
+                                    "description": "ILG Use, Copy of field that uniquely identifies this record. E.g., OrderNumber",
+                                    "example": "SO238812",
+                                    "maxLength": 50,
+                                    "type": "string"
+                                },
+                                "ExpDelDate": {
+                                    "description": "Expected Delivery Date",
+                                    "example": "2022-01-28",
+                                    "type": "string"
+                                },
+                                "GORespLines": {
+                                    "items": {
+                                        "properties": {
+                                            "LineNumber": {
+                                                "description": "Linenumber from original outbound order",
+                                                "example": 1,
+                                                "type": "integer"
+                                            },
+                                            "PrdID": {
+                                                "description": "Product (SKU) must match Master data primary product in WMS",
+                                                "example": "GO2333",
+                                                "maxLength": 15,
+                                                "type": "string"
+                                            },
+                                            "Qty": {
+                                                "description": "Quantity Shipped within listed Package",
+                                                "example": 1,
+                                                "type": "integer"
+                                            },
+                                            "EachQty": {
+                                                "description": "Each Quantity Shipped within listed Package",
+                                                "example": 40,
+                                                "type": "integer"
+                                            },
+                                            "SSCC": {
+                                                "description": "For Future use when linking Despatch line/Sku comb to Package",
+                                                "example": "0338877133",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "BatchID": {
+                                                "description": "Batch of the fulfiled line",
+                                                "example": "12121221",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "DateExpiry": {
+                                                "description": "Expiry date of product",
+                                                "example": "2030-01-01T23:59:59",
+                                                "maxLength": 20,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "LineNumber",
+                                            "PrdID",
+                                            "Qty"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "ILGRef": {
+                                    "description": "Internal ILG Order Reference",
+                                    "maxLength": 20,
+                                    "type": "string"
+                                },
+                                "LocationID": {
+                                    "description": "ILG Warehouse ID",
+                                    "example": "NORTHAMPTON",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "OrdNumber": {
+                                    "description": "Primary customer ordernumber (should be unique from the customer's viewpoint) UPPER",
+                                    "example": "SO238812",
+                                    "maxLength": 20,
+                                    "type": "string"
+                                },
+                                "OrdRef1": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "XD33093",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdRef2": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "AOS687668783",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdRef3": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "TEST",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdType": {
+                                    "description": "Type of Order, E.g. SO (Sales order)  TO (Outbound Transfer Order)",
+                                    "enum": [
+                                        "SO",
+                                        "TOO"
+                                    ],
+                                    "example": "SO",
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "Packages": {
+                                    "items": {
+                                        "properties": {
+                                            "Depth": {
+                                                "description": "Depth in cm",
+                                                "example": 5.5,
+                                                "type": "number"
+                                            },
+                                            "Height": {
+                                                "description": "Height in cm",
+                                                "example": 3.4,
+                                                "type": "number"
+                                            },
+                                            "PackagingCode": {
+                                                "description": "Code describing physical packagine,  L52,L60,OS4",
+                                                "example": "L52",
+                                                "maxLength": 5,
+                                                "type": "string"
+                                            },
+                                            "Qty": {
+                                                "description": "Total number of items within a consigment",
+                                                "example": 343,
+                                                "type": "integer"
+                                            },
+                                            "SSCC": {
+                                                "description": "Unique Package ID",
+                                                "example": "0338877133",
+                                                "maxLength": 20,
+                                                "type": "string"
+                                            },
+                                            "Weight": {
+                                                "description": "NET Weight in Kg",
+                                                "example": 11.3,
+                                                "type": "number"
+                                            },
+                                            "Width": {
+                                                "description": "Width in cm",
+                                                "example": 4.5,
+                                                "type": "number"
+                                            }
+                                        },
+                                        "required": [
+                                            "Depth",
+                                            "Height",
+                                            "SSCC",
+                                            "Weight",
+                                            "Width",
+                                            "Qty"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "Priority": {
+                                    "description": "Priority of order - NORM (Default)",
+                                    "enum": [
+                                        "NORM",
+                                        "URGNT",
+                                        "HIGH"
+                                    ],
+                                    "example": "NORM",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "ReqType": {
+                                    "description": "Request Type - New or Update",
+                                    "enum": [
+                                        "NEW",
+                                        "UPD"
+                                    ],
+                                    "example": "NEW",
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "RetailID": {
+                                    "description": "Usually for BTB Customer to identify regular delivery customers that may require specific handling/Ops procedures (ECOM, ASOS)",
+                                    "example": "ECOM",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "Service": {
+                                    "description": "Dispatched service (may NOT match original request)",
+                                    "example": "RM58",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "ShipDate": {
+                                    "description": "Date Shipped",
+                                    "type": "string"
+                                },
+                                "Stage": {
+                                    "description": "Order Stage",
+                                    "enum": [
+                                        "DISP",
+                                        "PICK",
+                                        "PACK",
+                                        "CANC"
+                                    ],
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "StockPool": {
+                                    "description": "Stock Pool",
+                                    "enum": [
+                                        "ECOM",
+                                        "WS",
+                                        "BULK"
+                                    ],
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "TotalWeight": {
+                                    "description": "In KG 2 dp",
+                                    "example": 12.44,
+                                    "type": "number"
+                                },
+                                "TrackingNumber": {
+                                    "description": "Carrier Tracking Number (ONLY Parent tracking number)",
+                                    "maxLength": 50,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "AccountID",
+                                "StockPool",
+                                "OrdType",
+                                "ReqType",
+                                "Class",
+                                "Service",
+                                "Brand",
+                                "EntityID",
+                                "ILGRef",
+                                "LocationID",
+                                "OrderNumber",
+                                "OrdRef1"
+                            ],
+                            "type": "object"
+                        },
+                        "type": "array"
+                    }
+                }
+            },
+            "goodsIn-req": {
+                "type": "object",
+                "properties": {
+                    "iOrders": {
+                        "items": {
+                            "required": [
+                                "AccountID",
+                                "LocationID",
+                                "StockPool",
+                                "OrdType",
+                                "ReqType",
+                                "Class",
+                                "ExpDelDate",
+                                "OrdNumber"
+                            ],
+                            "properties": {
+                                "AccountID": {
+                                    "description": "ILG Customer Account",
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "Cfields": {
+                                    "items": {
+                                        "properties": {
+                                            "Field": {
+                                                "description": "Custom Name of field",
+                                                "example": "GIFT1",
+                                                "maxLength": 10,
+                                                "type": "string"
+                                            },
+                                            "FldType": {
+                                                "description": "string, number or attachment",
+                                                "enum": [
+                                                    "STRING",
+                                                    "NUM",
+                                                    "BOOL",
+                                                    "ATT"
+                                                ],
+                                                "example": "ATT",
+                                                "maxLength": 10,
+                                                "type": "string"
+                                            },
+                                            "FValue": {
+                                                "description": "Data value - entered as string but validated as required by DataType",
+                                                "example": "Happy Christmas Peter",
+                                                "maxLength": 200,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "Class": {
+                                    "description": "Class of goodsin Service",
+                                    "enum": [
+                                        "STD",
+                                        "EXP"
+                                    ],
+                                    "example": "ECOM",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "CorrelationID": {
+                                    "description": "INTERNAL FOR ILG USE DO NOT POPULATE",
+                                    "example": "9ed2b057-342f-4838-860b-4ac37fddf007",
+                                    "maxLength": 250,
+                                    "type": "string"
+                                },
+                                "EntityID": {
+                                    "description": "ILG Use, Copy of field that uniquely identifies this record. E.g., OrderNumber",
+                                    "example": "PO238812",
+                                    "maxLength": 50,
+                                    "type": "string"
+                                },
+                                "ExpDelDate": {
+                                    "description": "Expected Delivery Date (Used as default for all lines unless LineDelDate specified)",
+                                    "example": "2022-01-28",
+                                    "type": "string"
+                                },
+                                "iOrderLines": {
+                                    "items": {
+                                        "properties": {
+                                            "AltLineID": {
+                                                "description": "Alternate/Secondary line - Sometimes required for BTB or EDI orders",
+                                                "example": 13,
+                                                "type": "number"
+                                            },
+                                            "AltProductID": {
+                                                "description": "Secondary Product ID (As reference)",
+                                                "example": "JG668872",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "BatchID": {
+                                                "description": "Mostly not known at point of order, but may be used if pre-known batches due to arrive",
+                                                "example": "BTE76F5F",
+                                                "maxLength": 15,
+                                                "type": "string"
+                                            },
+                                            "Cfields": {
+                                                "items": {
+                                                    "properties": {
+                                                        "Field": {
+                                                            "description": "Custom Name of field",
+                                                            "example": "GIFT1",
+                                                            "maxLength": 10,
+                                                            "type": "string"
+                                                        },
+                                                        "FldType": {
+                                                            "description": "string, number or attachment",
+                                                            "enum": [
+                                                                "STRING",
+                                                                "NUM",
+                                                                "BOOL",
+                                                                "ATT"
+                                                            ],
+                                                            "example": "ATT",
+                                                            "maxLength": 10,
+                                                            "type": "string"
+                                                        },
+                                                        "FValue": {
+                                                            "description": "Data value - entered as string but validated as required by DataType",
+                                                            "example": "Happy Christmas Peter",
+                                                            "maxLength": 200,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "LineNumber": {
+                                                "description": "Linenumber from GoodsIns order, this is Usually unique for the customer and needs to be if later editing is required via API",
+                                                "example": 1,
+                                                "type": "number"
+                                            },
+                                            "LineDelDate": {
+                                                "description": "IF PO, expected delivery dates at line level, if ASN, this is blank as date is set at header level",
+                                                "example": "2022-02-11",
+                                                "type": "string"
+                                            },
+                                            "PrdStatus": {
+                                                "description": "Product status on receipt (Usually Good for new Stock)",
+                                                "example": "GOOD",
+                                                "maxLength": 5,
+                                                "type": "string",
+                                                "enum": [
+                                                    "GOOD",
+                                                    "QA"
+                                                ]
+                                            },
+                                            "PrdLife": {
+                                                "description": "Life Days, For products that have a shelf life. This ovverides the default in master data.  Missing or 0 to use masterdata default",
+                                                "example": 45,
+                                                "type": "number"
+                                            },
+                                            "ProductID": {
+                                                "description": "Product (SKU) must match Master data primary product in WMS",
+                                                "example": "10056758",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "ProductionDate": {
+                                                "description": "Used for products that have a shelf life to calculate expiry date",
+                                                "example": "2022-02-11",
+                                                "type": "string"
+                                            },
+                                            "Qty": {
+                                                "description": "Quantity",
+                                                "example": 12,
+                                                "type": "number"
+                                            },
+                                            "UoM": {
+                                                "description": "Usually Each, but could be Inner, Outer  (We will select Inners or outers as part of the warehouse process as appropriate)",
+                                                "enum": [
+                                                    "EACH",
+                                                    "INNER",
+                                                    "OUTER"
+                                                ],
+                                                "example": "EACH",
+                                                "maxLength": 5,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "LineNumber",
+                                            "ProductID",
+                                            "Qty"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "LocationID": {
+                                    "description": "ILG Warehouse ID",
+                                    "example": "NORTHAMPTON",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "Notes": {
+                                    "description": "Optional order comment field,  Exception to normal order processing",
+                                    "example": "Special order to VIP",
+                                    "maxLength": 250,
+                                    "type": "string"
+                                },
+                                "OrdNumber": {
+                                    "description": "Ponumber or ASN number",
+                                    "example": "PO238812",
+                                    "maxLength": 20,
+                                    "type": "string"
+                                },
+                                "OrdRef1": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "XD33093",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdRef2": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "AOS687668783",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdRef3": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "TEST",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdType": {
+                                    "description": "ASN, PO can be split into multiple ASNs with separate expected dates ",
+                                    "enum": [
+                                        "PO",
+                                        "TOI",
+                                        "ASN"
+                                    ],
+                                    "example": "PO",
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "ReqType": {
+                                    "description": "Request Type - New or Update",
+                                    "enum": [
+                                        "NEW",
+                                        "UPD"
+                                    ],
+                                    "example": "NEW",
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "StockPool": {
+                                    "description": "Customers Stock Pool",
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "type": "array"
+                    }
+                }
+            },
+            "goodsIn-conf": {
+                "type": "object",
+                "properties": {
+                    "GIResp": {
+                        "items": {
+                            "required": [
+                                "AccountID",
+                                "LocationID",
+                                "StockPool",
+                                "OrdType",
+                                "ReqType",
+                                "Class",
+                                "ExpDelDate",
+                                "OrdNumber"
+                            ],
+                            "properties": {
+                                "AccountID": {
+                                    "description": "ILG Customer Account",
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "Cfields": {
+                                    "items": {
+                                        "properties": {
+                                            "Field": {
+                                                "description": "Custom Name of field",
+                                                "example": "GIFT1",
+                                                "maxLength": 10,
+                                                "type": "string"
+                                            },
+                                            "FldType": {
+                                                "description": "string, number or attachment",
+                                                "enum": [
+                                                    "STRING",
+                                                    "NUM",
+                                                    "BOOL",
+                                                    "ATT"
+                                                ],
+                                                "example": "ATT",
+                                                "maxLength": 10,
+                                                "type": "string"
+                                            },
+                                            "FValue": {
+                                                "description": "Data value - entered as string but validated as required by DataType",
+                                                "example": "Happy Christmas Peter",
+                                                "maxLength": 200,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "Class": {
+                                    "description": "Class of goodsin Service",
+                                    "enum": [
+                                        "STD",
+                                        "EXP"
+                                    ],
+                                    "example": "ECOM",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "CorrelationID": {
+                                    "description": "INTERNAL FOR ILG USE DO NOT POPULATE",
+                                    "example": "9ed2b057-342f-4838-860b-4ac37fddf007",
+                                    "maxLength": 250,
+                                    "type": "string"
+                                },
+                                "EntityID": {
+                                    "description": "ILG Use, Copy of field that uniquely identifies this record. E.g., OrderNumber",
+                                    "example": "PO238812",
+                                    "maxLength": 50,
+                                    "type": "string"
+                                },
+                                "RecDate": {
+                                    "description": "Received Date",
+                                    "example": "2022-01-28",
+                                    "type": "string"
+                                },
+                                "GIRespLines": {
+                                    "items": {
+                                        "properties": {
+                                            "AltLineID": {
+                                                "description": "Alternate/Secondary line - Sometimes required for BTB or EDI orders",
+                                                "example": 13,
+                                                "type": "number"
+                                            },
+                                            "AltProductID": {
+                                                "description": "Secondary Product ID (As reference)",
+                                                "example": "JG668872",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "BatchID": {
+                                                "description": "Mostly not known at point of order, but may be used if pre-known batches due to arrive",
+                                                "example": "BTE76F5F",
+                                                "maxLength": 15,
+                                                "type": "string"
+                                            },
+                                            "Cfields": {
+                                                "items": {
+                                                    "properties": {
+                                                        "Field": {
+                                                            "description": "Custom Name of field",
+                                                            "example": "GIFT1",
+                                                            "maxLength": 10,
+                                                            "type": "string"
+                                                        },
+                                                        "FldType": {
+                                                            "description": "string, number or attachment",
+                                                            "enum": [
+                                                                "STRING",
+                                                                "NUM",
+                                                                "BOOL",
+                                                                "ATT"
+                                                            ],
+                                                            "example": "ATT",
+                                                            "maxLength": 10,
+                                                            "type": "string"
+                                                        },
+                                                        "FValue": {
+                                                            "description": "Data value - entered as string but validated as required by DataType",
+                                                            "example": "Happy Christmas Peter",
+                                                            "maxLength": 200,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "LineNumber": {
+                                                "description": "Linenumber from GoodsIns order, this is Usually unique for the customer and needs to be if later editing is required via API",
+                                                "example": 1,
+                                                "type": "number"
+                                            },
+                                            "LineRecDate": {
+                                                "description": "IF PO, Rec delivery dates at line level, if ASN, this is blank as date is set at header level",
+                                                "example": "2022-02-11",
+                                                "type": "string"
+                                            },
+                                            "PrdStatus": {
+                                                "description": "Product status on receipt (Usually Good for new Stock)",
+                                                "example": "GOOD",
+                                                "maxLength": 5,
+                                                "type": "string",
+                                                "enum": [
+                                                    "GOOD",
+                                                    "QA"
+                                                ]
+                                            },
+                                            "PrdLife": {
+                                                "description": "Life Days, For products that have a shelf life. This ovverides the default in master data.  Missing or 0 to use masterdata default",
+                                                "example": 45,
+                                                "type": "number"
+                                            },
+                                            "ProductID": {
+                                                "description": "Product (SKU) must match Master data primary product in WMS",
+                                                "example": "10056758",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "ProductionDate": {
+                                                "description": "Used for products that have a shelf life to calculate expiry date",
+                                                "example": "2022-02-11",
+                                                "type": "string"
+                                            },
+                                            "EachQty": {
+                                                "description": "Inbound EACH qty (differs from Qty if UoM<>EACH",
+                                                "example": 12,
+                                                "type": "number"
+                                            },
+                                            "Qty": {
+                                                "description": "Quantity",
+                                                "example": 12,
+                                                "type": "number"
+                                            },
+                                            "UoM": {
+                                                "description": "Usually Each, but could be Inner, Outer  (We will select Inners or outers as part of the warehouse process as appropriate)",
+                                                "enum": [
+                                                    "EACH",
+                                                    "INNER",
+                                                    "OUTER"
+                                                ],
+                                                "example": "EACH",
+                                                "maxLength": 5,
+                                                "type": "string"
+                                            },
+                                            "Reason": {
+                                                "description": "Reason for return (translated to customer)",
+                                                "example": "2022-02-11",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "LineNumber",
+                                            "ProductID",
+                                            "Qty"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "LocationID": {
+                                    "description": "ILG Warehouse ID",
+                                    "example": "NORTHAMPTON",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "Notes": {
+                                    "description": "Optional order comment field,  Exception to normal order processing)",
+                                    "example": "Special order to VIP",
+                                    "maxLength": 250,
+                                    "type": "string"
+                                },
+                                "OrdNumber": {
+                                    "description": "Ponumber or ASN number",
+                                    "example": "PO238812",
+                                    "maxLength": 20,
+                                    "type": "string"
+                                },
+                                "OrdRef1": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "XD33093",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdRef2": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "AOS687668783",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdRef3": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "TEST",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdType": {
+                                    "description": "ASN, PO can be split into multiple ASNs with separate expected dates ",
+                                    "enum": [
+                                        "PO",
+                                        "TOI",
+                                        "ASN"
+                                    ],
+                                    "example": "PO",
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "ReqType": {
+                                    "description": "Request Type - New or Update",
+                                    "enum": [
+                                        "NEW",
+                                        "UPD"
+                                    ],
+                                    "example": "NEW",
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "StockPool": {
+                                    "description": "Customers Stock Pool",
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "type": "array"
+                    }
+                }
+            },
+            "masterData-req": {
+                "type": "object",
+                "properties": {
+                    "Products": {
+                        "items": {
+                            "properties": {
+                                "AccountID": {
+                                    "example": "CUST1",
+                                    "type": "string",
+                                    "description": "ILG Customer Account"
+                                },
+                                "Alias1": {
+                                    "example": "PRD33440",
+                                    "type": "string",
+                                    "description": "Alternative Product Identifiers (Optional must be agreed with ILG before use)"
+                                },
+                                "Alias2": {
+                                    "example": "NA5799844",
+                                    "type": "string",
+                                    "description": "Alternative Product Identifiers (Optional must be agreed with ILG before use)"
+                                },
+                                "BatchPrd": {
+                                    "example": 0,
+                                    "type": "number",
+                                    "description": "1 if Items require a batch codes when added to stock, default 0 (1=yes)"
+                                },
+                                "HazardPrd": {
+                                    "example": 0,
+                                    "type": "number",
+                                    "description": "1 if product is 'Hazardous' and needs additional hazard classification on improt"
+                                },
+                                "Brand": {
+                                    "example": "MyFirstBrand",
+                                    "type": "string",
+                                    "description": "Single ILG Customer can have multiple brands that might require specific operational treatment",
+                                    "maxLength": 20
+                                },
+                                "COO": {
+                                    "example": "IT",
+                                    "type": "string",
+                                    "description": "Country of origin UPPSER ISO 2",
+                                    "maxLength": 2
+                                },
+                                "Category1": {
+                                    "example": "Fashion",
+                                    "type": "string",
+                                    "description": "Agreed list, populates drop down in target system",
+                                    "maxLength": 50
+                                },
+                                "Category2": {
+                                    "example": "Wearables",
+                                    "type": "string",
+                                    "description": "Product subcategory",
+                                    "maxLength": 50
+                                },
+                                "Commodity": {
+                                    "example": "1006301100",
+                                    "type": "string",
+                                    "description": "Req for PrdType=STOCK UK Export Commodity Code",
+                                    "maxLength": 12
+                                },
+                                "Cost": {
+                                    "example": 2.33,
+                                    "type": "number",
+                                    "description": "Unit Cost Price - Default value if not incuded on SO LINE "
+                                },
+                                "Currency": {
+                                    "example": "GBP",
+                                    "type": "string"
+                                },
+                                "DGClass": {
+                                    "example": 4,
+                                    "type": "number"
+                                },
+                                "DGPack": {
+                                    "example": "II",
+                                    "type": "string"
+                                },
+                                "DGUNNumber": {
+                                    "example": "UN3349",
+                                    "type": "string"
+                                },
+                                "DiscDate": {
+                                    "example": "2050-12-31",
+                                    "type": "string",
+                                    "description": "Date at which Product is Discontinued (Set to a long time in the future by default)"
+                                },
+                                "EABarcode": {
+                                    "example": "6887667733",
+                                    "type": "string",
+                                    "description": "Each Barcode",
+                                    "maxLength": 20
+                                },
+                                "EADepth": {
+                                    "example": 3,
+                                    "type": "number",
+                                    "description": "Each Depth in cm"
+                                },
+                                "EAHeight": {
+                                    "example": 20,
+                                    "type": "number",
+                                    "description": "Each Height in cm"
+                                },
+                                "EAWeight": {
+                                    "example": 10,
+                                    "type": "number",
+                                    "description": "Each Weight in gramms"
+                                },
+                                "EAWidth": {
+                                    "example": 10,
+                                    "type": "number",
+                                    "description": "Each Width in cm"
+                                },
+                                "EAQty": {
+                                    "example": 10,
+                                    "type": "number",
+                                    "description": "Each Qty"
+                                },
+                                "ExpirePrd": {
+                                    "example": 0,
+                                    "type": "number",
+                                    "description": "1 if items within batch have an expiry date (Production date and Expiry days set on import)"
+                                },
+                                "INBarcode": {
+                                    "example": "8708928943",
+                                    "type": "string",
+                                    "description": "Inner Barcode",
+                                    "maxLength": 20
+                                },
+                                "INQty": {
+                                    "example": 20,
+                                    "type": "number",
+                                    "description": "Inner Quantity"
+                                },
+                                "LongDesc": {
+                                    "example": "Faux Leather Clutch bag Green (xxl 3 extra pockets)",
+                                    "type": "string",
+                                    "description": "Longer full product description",
+                                    "maxLength": 250
+                                },
+                                "MIDCode": {
+                                    "example": "CNAOSGAR5GUA",
+                                    "type": "string"
+                                },
+                                "OUBarcode": {
+                                    "example": "80082477444",
+                                    "type": "string",
+                                    "description": "Outer barcode",
+                                    "maxLength": 20
+                                },
+                                "OUDepth": {
+                                    "example": 3904,
+                                    "type": "number",
+                                    "description": "Outer Depth in cm"
+                                },
+                                "OUHeight": {
+                                    "example": 6000,
+                                    "type": "number",
+                                    "description": "Outer Height in cm"
+                                },
+                                "OUQty": {
+                                    "example": 400,
+                                    "type": "number",
+                                    "description": "Outer Qty"
+                                },
+                                "OUWeight": {
+                                    "example": 4010,
+                                    "type": "number",
+                                    "description": "Outer Weight in gramms"
+                                },
+                                "OUWidth": {
+                                    "example": 4000,
+                                    "type": "number",
+                                    "description": "Outer Width in cm"
+                                },
+                                "UoM": {
+                                    "example": "80082477444",
+                                    "type": "string",
+                                    "description": "Unit of Measure",
+                                    "enum": [
+                                        "EACH",
+                                        "INNER",
+                                        "OUTER"
+                                    ],
+                                    "maxLength": 5
+                                },
+                                "PrdClass": {
+                                    "example": "SFAST",
+                                    "type": "string",
+                                    "description": "Product class"
+                                },
+                                "PrdLife": {
+                                    "example": 365,
+                                    "type": "number",
+                                    "description": "For products with ExpirePrd=1, this is the Default life in days used to Calc Expiry Date"
+                                },
+                                "PrdStatus": {
+                                    "example": "ACTI",
+                                    "type": "string",
+                                    "description": "Product Status: Active, Suspended (Can't be picked for sales but can be for WH transfers),Discontinued (No transactions) ",
+                                    "maxLength": 5,
+                                    "enum": [
+                                        "ACTI",
+                                        "SUSP",
+                                        "DISC"
+                                    ]
+                                },
+                                "PrdType": {
+                                    "example": "STOCK",
+                                    "type": "string",
+                                    "description": "Product type, Stock Item,KIT (Using KitGrp Ref) Consumable, Virtual Product",
+                                    "maxLength": 5,
+                                    "enum": [
+                                        "STOCK",
+                                        "KIT",
+                                        "CONS",
+                                        "VIRT"
+                                    ]
+                                },
+                                "ProductID": {
+                                    "example": "PETER18",
+                                    "type": "string",
+                                    "description": "Product (SKU) which must match the Master data primary product in WMS",
+                                    "maxLength": 30
+                                },
+                                "ReqType": {
+                                    "example": "UPD",
+                                    "type": "string",
+                                    "description": "Request type NEW, new product, UPD to update existing",
+                                    "maxLength": 5,
+                                    "enum": [
+                                        "NEW",
+                                        "UPD"
+                                    ]
+                                },
+                                "SerialPrd": {
+                                    "example": 0,
+                                    "type": "number",
+                                    "description": "1 if items are imported with unqiue Serial Numbers when added to stock, Default 0"
+                                },
+                                "ShortDesc": {
+                                    "example": "PETER CHANGE BLUE",
+                                    "type": "string",
+                                    "description": "Short Product description (appears on most SKU related screens in WNS)",
+                                    "maxLength": 30
+                                },
+                                "StockPool": {
+                                    "example": "CUST1",
+                                    "type": "string",
+                                    "description": "Customer Stock pool",
+                                    "maxLength": 15
+                                },
+                                "CorrelationID": {
+                                    "example": "9ed2b057-342f-4838-860b-4ac37fddf007",
+                                    "type": "string",
+                                    "description": "INTERNAL FOR ILG USE DO NOT POPULATE",
+                                    "maxLength": 250
+                                },
+                                "EntityID": {
+                                    "example": "9ed2b057-342f-4838-860b-4ac37fddf007",
+                                    "type": "string",
+                                    "description": "ILG Use, Copy of field that uniquely identifies this record. E.g., ProductID",
+                                    "maxLength": 250
+                                },
+                                "Cfields": {
+                                    "items": {
+                                        "properties": {
+                                            "Field": {
+                                                "description": "Custom Name of field",
+                                                "example": "GIFT1",
+                                                "maxLength": 10,
+                                                "type": "string"
+                                            },
+                                            "FldType": {
+                                                "description": "string, number or attachment",
+                                                "enum": [
+                                                    "STRING",
+                                                    "NUM",
+                                                    "BOOL",
+                                                    "ATT"
+                                                ],
+                                                "example": "ATT",
+                                                "maxLength": 10,
+                                                "type": "string"
+                                            },
+                                            "FValue": {
+                                                "description": "Data value - entered as string but validated as required by DataType",
+                                                "example": "Happy Christmas Peter",
+                                                "maxLength": 200,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "KitPrds": {
+                                    "items": {
+                                        "properties": {
+                                            "KitPrdID": {
+                                                "description": "Kit Product ID, Products must exist and NOT be of type KIT.",
+                                                "example": "DS89032",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "KitQTY": {
+                                                "description": "Qty of PrdID within parent kit",
+                                                "example": 10,
+                                                "type": "number"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "type": "array"
+                    }
+                }
+            },
+            "stockMovement": {
+                "type": "object",
+                "properties": {
+                    "sMoves": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "AccountID": {
+                                    "description": "ILG Customer Account",
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "CorrelationID": {
+                                    "description": "INTERNAL FOR ILG USE DO NOT POPULATE",
+                                    "example": "9ed2b057-342f-4838-860b-4ac37fddf007",
+                                    "maxLength": 250,
+                                    "type": "string"
+                                },
+                                "EntityID": {
+                                    "description": "ILG Use, Copy of field that uniquely identifies this record. E.g., OrderNumber",
+                                    "example": "PO238812",
+                                    "maxLength": 50,
+                                    "type": "string"
+                                },
+                                "MoveType": {
+                                    "type": "string",
+                                    "example": "ADJ",
+                                    "enum": [
+                                        "ADJ",
+                                        "REG",
+                                        "DIS",
+                                        "MOV"
+                                    ],
+                                    "description": "Determines the type of Movement e.g. Adjustment, Movement, Disposal"
+                                },
+                                "TrnDate": {
+                                    "type": "string",
+                                    "example": "2022-01-28",
+                                    "description": "Transaction date"
+                                },
+                                "Reason": {
+                                    "type": "string",
+                                    "example": "string",
+                                    "description": "Reason for stock movement"
+                                },
+                                "Comment": {
+                                    "type": "string"
+                                },
+                                "Moves": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "ProductID": {
+                                                "type": "string"
+                                            },
+                                            "LongDesc": {
+                                                "type": "string"
+                                            },
+                                            "Qty": {
+                                                "type": "number"
+                                            },
+                                            "FrmWH": {
+                                                "type": "string"
+                                            },
+                                            "FrmPool": {
+                                                "type": "string"
+                                            },
+                                            "FrmLoc": {
+                                                "type": "string"
+                                            },
+                                            "FrmStatus": {
+                                                "type": "string"
+                                            },
+                                            "ToWH": {
+                                                "type": "string"
+                                            },
+                                            "ToPool": {
+                                                "type": "string"
+                                            },
+                                            "ToLoc": {
+                                                "type": "string"
+                                            },
+                                            "ToStatus": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "ProductID",
+                                            "Qty"
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "AccountID",
+                                "EntityID",
+                                "MoveType",
+                                "Moves",
+                                "Reason",
+                                "TrnDate"
+                            ]
+                        }
+                    }
+                }
+            },
+            "return-req": {
+                "type": "object",
+                "properties": {
+                    "rOrders": {
+                        "items": {
+                            "required": [
+                                "AccountID",
+                                "LocationID",
+                                "StockPool",
+                                "OrdType",
+                                "ReqType",
+                                "Class",
+                                "OrdNumber",
+                                "ILGRef",
+                                "OrdRef1"
+                            ],
+                            "properties": {
+                                "AccountID": {
+                                    "description": "ILG Customer Account",
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "Cfields": {
+                                    "items": {
+                                        "properties": {
+                                            "Field": {
+                                                "description": "Custom Name of field",
+                                                "example": "GIFT1",
+                                                "maxLength": 10,
+                                                "type": "string"
+                                            },
+                                            "FldType": {
+                                                "description": "string, number or attachment",
+                                                "enum": [
+                                                    "STRING",
+                                                    "NUM",
+                                                    "BOOL",
+                                                    "ATT"
+                                                ],
+                                                "example": "ATT",
+                                                "maxLength": 10,
+                                                "type": "string"
+                                            },
+                                            "FValue": {
+                                                "description": "Data value - entered as string but validated as required by DataType",
+                                                "example": "Happy Christmas Peter",
+                                                "maxLength": 200,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "Class": {
+                                    "description": "Class of Returns Service values WHSRTN or WS will set a Wholesale class, all others will be set to Customer class",
+                                    "example": "WS",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "CorrelationID": {
+                                    "description": "INTERNAL FOR ILG USE DO NOT POPULATE",
+                                    "example": "9ed2b057-342f-4838-860b-4ac37fddf007",
+                                    "maxLength": 250,
+                                    "type": "string"
+                                },
+                                "EntityID": {
+                                    "description": "ILG Use, Copy of field that uniquely identifies this record. E.g., OrderNumber",
+                                    "example": "PO238812",
+                                    "maxLength": 50,
+                                    "type": "string"
+                                },
+                                "ExpDelDate": {
+                                    "description": "Expected Delivery Date",
+                                    "example": "2022-01-28",
+                                    "type": "string"
+                                },
+                                "rOrderLines": {
+                                    "items": {
+                                        "properties": {
+                                            "AltLineID": {
+                                                "description": "Alternate/Secondary line - Sometimes required for BTB or EDI orders",
+                                                "example": 13,
+                                                "type": "number"
+                                            },
+                                            "AltProductID": {
+                                                "description": "Secondary Product ID (As reference)",
+                                                "example": "JG668872",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "BatchID": {
+                                                "description": "Mostly not known upfront, so optional",
+                                                "example": "BTE76F5F",
+                                                "maxLength": 15,
+                                                "type": "string"
+                                            },
+                                            "Cfields": {
+                                                "items": {
+                                                    "properties": {
+                                                        "Field": {
+                                                            "description": "Custom Name of field",
+                                                            "example": "GIFT1",
+                                                            "maxLength": 10,
+                                                            "type": "string"
+                                                        },
+                                                        "FldType": {
+                                                            "description": "string, number or attachment",
+                                                            "enum": [
+                                                                "STRING",
+                                                                "NUM",
+                                                                "BOOL",
+                                                                "ATT"
+                                                            ],
+                                                            "example": "ATT",
+                                                            "maxLength": 10,
+                                                            "type": "string"
+                                                        },
+                                                        "FValue": {
+                                                            "description": "Data value - entered as string but validated as required by DataType",
+                                                            "example": "Happy Christmas Peter",
+                                                            "maxLength": 200,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "LineNumber": {
+                                                "description": "Linenumber from Sales order, this is Usually unique for the customer and needs to be if later editing is required via API",
+                                                "example": 1,
+                                                "type": "number"
+                                            },
+                                            "LineDelDate": {
+                                                "description": "IF PO, expected delivery dates at line level, if ASN, this is blank as date is set at header level",
+                                                "example": "2022-02-11",
+                                                "type": "string"
+                                            },
+                                            "PrdStatus": {
+                                                "description": "Product Status on Import (Could be QA for Returns, usually GOOD for ASN)",
+                                                "example": "GOOD",
+                                                "maxLength": 5,
+                                                "type": "string",
+                                                "enum": [
+                                                    "GOOD",
+                                                    "QA"
+                                                ]
+                                            },
+                                            "ProductID": {
+                                                "description": "Product (SKU) must match Master data primary product in WMS",
+                                                "example": "10056758",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "ProductionDate": {
+                                                "description": "Used for products that have a shelf life to calculate expiry date",
+                                                "example": "2022-02-11",
+                                                "type": "string"
+                                            },
+                                            "Qty": {
+                                                "description": "Expected Quantity ",
+                                                "example": 12,
+                                                "type": "number"
+                                            },
+                                            "Reason": {
+                                                "description": "Return reason",
+                                                "example": "Reason for item return",
+                                                "maxLength": 15,
+                                                "type": "string"
+                                            },
+                                            "UoM": {
+                                                "description": "Units of Measure for returns",
+                                                "enum": [
+                                                    "EACH",
+                                                    "INNER",
+                                                    "OUTER"
+                                                ],
+                                                "example": "EACH",
+                                                "maxLength": 5,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "LineNumber",
+                                            "ProductID",
+                                            "Qty",
+                                            "Reason"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "LocationID": {
+                                    "description": "ILG Warehouse ID",
+                                    "example": "NORTHAMPTON",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "ILGRef": {
+                                    "description": "Internal ILG WMS generated OrderNumber for original GoodsOut Order ",
+                                    "example": "NHTR1234567",
+                                    "maxLength": 20,
+                                    "type": "string"
+                                },
+                                "Notes": {
+                                    "description": "Notes to receiver",
+                                    "example": "Special order to VIP",
+                                    "maxLength": 250,
+                                    "type": "string"
+                                },
+                                "OrdNumber": {
+                                    "description": "Customer ID for returns order UPPER",
+                                    "example": "RTN238872",
+                                    "maxLength": 20,
+                                    "type": "string"
+                                },
+                                "OrdRef1": {
+                                    "description": "Original Customer sales number",
+                                    "example": "XD33093",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdRef2": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "AOS687668783",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdRef3": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "TEST",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdType": {
+                                    "description": "ASN, PO can be split into multiple ASNs with separate expected dates ",
+                                    "enum": [
+                                        "RETK",
+                                        "RETU"
+                                    ],
+                                    "example": "RETK",
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "ReqType": {
+                                    "description": "Request Type - New or Update",
+                                    "enum": [
+                                        "NEW",
+                                        "UPD"
+                                    ],
+                                    "example": "NEW",
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "StockPool": {
+                                    "description": "Customers Stock Pool",
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "type": "array"
+                    }
+                }
+            },
+            "return-conf": {
+                "type": "object",
+                "properties": {
+                    "GIResp": {
+                        "items": {
+                            "required": [
+                                "AccountID",
+                                "LocationID",
+                                "StockPool",
+                                "OrdType",
+                                "ReqType",
+                                "Class",
+                                "ExpDelDate",
+                                "OrdNumber"
+                            ],
+                            "properties": {
+                                "AccountID": {
+                                    "description": "ILG Customer Account",
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "Cfields": {
+                                    "items": {
+                                        "properties": {
+                                            "Field": {
+                                                "description": "Custom Name of field",
+                                                "example": "GIFT1",
+                                                "maxLength": 10,
+                                                "type": "string"
+                                            },
+                                            "FldType": {
+                                                "description": "string, number or attachment",
+                                                "enum": [
+                                                    "STRING",
+                                                    "NUM",
+                                                    "BOOL",
+                                                    "ATT"
+                                                ],
+                                                "example": "ATT",
+                                                "maxLength": 10,
+                                                "type": "string"
+                                            },
+                                            "FValue": {
+                                                "description": "Data value - entered as string but validated as required by DataType",
+                                                "example": "Happy Christmas Peter",
+                                                "maxLength": 200,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "Class": {
+                                    "description": "Class of goodsin Service",
+                                    "enum": [
+                                        "STD",
+                                        "EXP"
+                                    ],
+                                    "example": "ECOM",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "CorrelationID": {
+                                    "description": "INTERNAL FOR ILG USE DO NOT POPULATE",
+                                    "example": "9ed2b057-342f-4838-860b-4ac37fddf007",
+                                    "maxLength": 250,
+                                    "type": "string"
+                                },
+                                "EntityID": {
+                                    "description": "ILG Use, Copy of field that uniquely identifies this record. E.g., OrderNumber",
+                                    "example": "PO238812",
+                                    "maxLength": 50,
+                                    "type": "string"
+                                },
+                                "RecDate": {
+                                    "description": "Received Date",
+                                    "example": "2022-01-28",
+                                    "type": "string"
+                                },
+                                "GIRespLines": {
+                                    "items": {
+                                        "properties": {
+                                            "AltLineID": {
+                                                "description": "Alternate/Secondary line - Sometimes required for BTB or EDI orders",
+                                                "example": 13,
+                                                "type": "number"
+                                            },
+                                            "AltProductID": {
+                                                "description": "Secondary Product ID (As reference)",
+                                                "example": "JG668872",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "BatchID": {
+                                                "description": "Mostly not known at point of order, but may be used if pre-known batches due to arrive",
+                                                "example": "BTE76F5F",
+                                                "maxLength": 15,
+                                                "type": "string"
+                                            },
+                                            "Cfields": {
+                                                "items": {
+                                                    "properties": {
+                                                        "Field": {
+                                                            "description": "Custom Name of field",
+                                                            "example": "GIFT1",
+                                                            "maxLength": 10,
+                                                            "type": "string"
+                                                        },
+                                                        "FldType": {
+                                                            "description": "string, number or attachment",
+                                                            "enum": [
+                                                                "STRING",
+                                                                "NUM",
+                                                                "BOOL",
+                                                                "ATT"
+                                                            ],
+                                                            "example": "ATT",
+                                                            "maxLength": 10,
+                                                            "type": "string"
+                                                        },
+                                                        "FValue": {
+                                                            "description": "Data value - entered as string but validated as required by DataType",
+                                                            "example": "Happy Christmas Peter",
+                                                            "maxLength": 200,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "LineNumber": {
+                                                "description": "Linenumber from GoodsIns order, this is Usually unique for the customer and needs to be if later editing is required via API",
+                                                "example": 1,
+                                                "type": "number"
+                                            },
+                                            "LineRecDate": {
+                                                "description": "IF PO, Rec delivery dates at line level, if ASN, this is blank as date is set at header level",
+                                                "example": "2022-02-11",
+                                                "type": "string"
+                                            },
+                                            "PrdStatus": {
+                                                "description": "Product status on receipt (Usually Good for new Stock)",
+                                                "example": "GOOD",
+                                                "maxLength": 5,
+                                                "type": "string",
+                                                "enum": [
+                                                    "GOOD",
+                                                    "QA"
+                                                ]
+                                            },
+                                            "PrdLife": {
+                                                "description": "Life Days, For products that have a shelf life. This ovverides the default in master data.  Missing or 0 to use masterdata default",
+                                                "example": 45,
+                                                "type": "number"
+                                            },
+                                            "ProductID": {
+                                                "description": "Product (SKU) must match Master data primary product in WMS",
+                                                "example": "10056758",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "ProductionDate": {
+                                                "description": "Used for products that have a shelf life to calculate expiry date",
+                                                "example": "2022-02-11",
+                                                "type": "string"
+                                            },
+                                            "EachQty": {
+                                                "description": "Inbound EACH qty (differs from Qty if UoM<>EACH",
+                                                "example": 12,
+                                                "type": "number"
+                                            },
+                                            "Qty": {
+                                                "description": "Quantity",
+                                                "example": 12,
+                                                "type": "number"
+                                            },
+                                            "UoM": {
+                                                "description": "Usually Each, but could be Inner, Outer  (We will select Inners or outers as part of the warehouse process as appropriate)",
+                                                "enum": [
+                                                    "EACH",
+                                                    "INNER",
+                                                    "OUTER"
+                                                ],
+                                                "example": "EACH",
+                                                "maxLength": 5,
+                                                "type": "string"
+                                            },
+                                            "Reason": {
+                                                "description": "Reason for return (translated to customer)",
+                                                "example": "2022-02-11",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "LineNumber",
+                                            "ProductID",
+                                            "Qty"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "LocationID": {
+                                    "description": "ILG Warehouse ID",
+                                    "example": "NORTHAMPTON",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "Notes": {
+                                    "description": "Optional order comment field,  Exception to normal order processing)",
+                                    "example": "Special order to VIP",
+                                    "maxLength": 250,
+                                    "type": "string"
+                                },
+                                "OrdNumber": {
+                                    "description": "Ponumber or ASN number",
+                                    "example": "PO238812",
+                                    "maxLength": 20,
+                                    "type": "string"
+                                },
+                                "OrdRef1": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "XD33093",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdRef2": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "AOS687668783",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdRef3": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "TEST",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdType": {
+                                    "description": "ASN, PO can be split into multiple ASNs with separate expected dates ",
+                                    "enum": [
+                                        "PO",
+                                        "TOI",
+                                        "ASN"
+                                    ],
+                                    "example": "PO",
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "ReqType": {
+                                    "description": "Request Type - New or Update",
+                                    "enum": [
+                                        "NEW",
+                                        "UPD"
+                                    ],
+                                    "example": "NEW",
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "StockPool": {
+                                    "description": "Customers Stock Pool",
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "type": "array"
+                    }
+                }
+            },
+            "workOrder-req": {
+                "type": "object",
+                "properties": {
+                    "wOrders": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "AccountID": {
+                                    "example": "CUST1",
+                                    "type": "string"
+                                },
+                                "CreatedDate": {
+                                    "example": "2022-01-27",
+                                    "type": "string"
+                                },
+                                "FinishedGoods": {
+                                    "items": {
+                                        "properties": {
+                                            "ExpDelDate": {
+                                                "example": "2022-07-12",
+                                                "type": "string"
+                                            },
+                                            "FGParts": {
+                                                "items": {
+                                                    "properties": {
+                                                        "ProductID": {
+                                                            "example": "HR88493",
+                                                            "type": "string"
+                                                        },
+                                                        "Qty": {
+                                                            "example": 3,
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "Life": {
+                                                "example": 365,
+                                                "type": "number"
+                                            },
+                                            "LineNumber": {
+                                                "example": 1,
+                                                "type": "number"
+                                            },
+                                            "ProductID": {
+                                                "example": "FG668872",
+                                                "type": "string"
+                                            },
+                                            "Qty": {
+                                                "example": 43,
+                                                "type": "number"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "LocationID": {
+                                    "example": "NORTHAMPTON",
+                                    "type": "string"
+                                },
+                                "Notes": {
+                                    "example": "Works order special instructions",
+                                    "type": "string"
+                                },
+                                "OrdNumber": {
+                                    "example": "WO440982",
+                                    "type": "string"
+                                },
+                                "OrdRef1": {
+                                    "example": "XD33092",
+                                    "type": "string"
+                                },
+                                "OrdRef2": {
+                                    "example": "XD33092",
+                                    "type": "string"
+                                },
+                                "OrdType": {
+                                    "example": "WO",
+                                    "type": "string"
+                                },
+                                "ReqType": {
+                                    "example": "NEW",
+                                    "type": "string"
+                                },
+                                "StockPool": {
+                                    "example": "ECOM",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "workOrder-conf": {
+                "type": "object",
+                "properties": {
+                    "GOResp": {
+                        "items": {
+                            "properties": {
+                                "AccountID": {
+                                    "description": "ILG Customer Account",
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "Brand": {
+                                    "description": "Single ILG Customer can have multiple brands that might require specific operational treatment",
+                                    "example": "MyFirstBrand",
+                                    "maxLength": 20,
+                                    "type": "string"
+                                },
+                                "Carrier": {
+                                    "description": "Specific Carrier; (usually blank)",
+                                    "example": "UPS",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "Class": {
+                                    "description": "Class of Service Ecom,Wholesale,P,EVAS,WVAS,OTHER",
+                                    "enum": [
+                                        "ECOM",
+                                        "WS",
+                                        "EVAS",
+                                        "WSVAS",
+                                        "PR",
+                                        "OTHER"
+                                    ],
+                                    "example": "ECOM",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "CorrelationID": {
+                                    "description": "INTERNAL FOR ILG USE DO NOT POPULATE",
+                                    "example": "9ed2b057-342f-4838-860b-4ac37fddf007",
+                                    "maxLength": 250,
+                                    "type": "string"
+                                },
+                                "CreatedDate": {
+                                    "description": "Order Creation Date (UTC Format)",
+                                    "example": "2022-01-27T13:29:59Z",
+                                    "type": "string"
+                                },
+                                "DueOutDate": {
+                                    "description": "Target Due out date",
+                                    "example": "2022-01-28",
+                                    "type": "string"
+                                },
+                                "EntityID": {
+                                    "description": "ILG Use, Copy of field that uniquely identifies this record. E.g., OrderNumber",
+                                    "example": "SO238812",
+                                    "maxLength": 50,
+                                    "type": "string"
+                                },
+                                "ExpDelDate": {
+                                    "description": "Expected Delivery Date",
+                                    "example": "2022-01-28",
+                                    "type": "string"
+                                },
+                                "GORespLines": {
+                                    "items": {
+                                        "properties": {
+                                            "LineNumber": {
+                                                "description": "Linenumber from original outbound order",
+                                                "example": 1,
+                                                "type": "integer"
+                                            },
+                                            "PrdID": {
+                                                "description": "Product (SKU) must match Master data primary product in WMS",
+                                                "example": "GO2333",
+                                                "maxLength": 15,
+                                                "type": "string"
+                                            },
+                                            "Qty": {
+                                                "description": "Quantity Shipped within listed Package",
+                                                "example": 1,
+                                                "type": "integer"
+                                            },
+                                            "EachQty": {
+                                                "description": "Each Quantity Shipped within listed Package",
+                                                "example": 40,
+                                                "type": "integer"
+                                            },
+                                            "SSCC": {
+                                                "description": "For Future use when linking Despatch line/Sku comb to Package",
+                                                "example": "0338877133",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "BatchID": {
+                                                "description": "Batch of the fulfiled line",
+                                                "example": "12121221",
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "DateExpiry": {
+                                                "description": "Expiry date of product",
+                                                "example": "2030-01-01T23:59:59",
+                                                "maxLength": 20,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "LineNumber",
+                                            "PrdID",
+                                            "Qty"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "ILGRef": {
+                                    "description": "Internal ILG Order Reference",
+                                    "maxLength": 20,
+                                    "type": "string"
+                                },
+                                "LocationID": {
+                                    "description": "ILG Warehouse ID",
+                                    "example": "NORTHAMPTON",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "OrdNumber": {
+                                    "description": "Primary customer ordernumber (should be unique from the customer's viewpoint) UPPER",
+                                    "example": "SO238812",
+                                    "maxLength": 20,
+                                    "type": "string"
+                                },
+                                "OrdRef1": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "XD33093",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdRef2": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "AOS687668783",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdRef3": {
+                                    "description": "Additional fixed customer order reference field",
+                                    "example": "TEST",
+                                    "maxLength": 35,
+                                    "type": "string"
+                                },
+                                "OrdType": {
+                                    "description": "Type of Order, E.g. SO (Sales order)  TO (Outbound Transfer Order)",
+                                    "enum": [
+                                        "SO",
+                                        "TOO"
+                                    ],
+                                    "example": "SO",
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "Packages": {
+                                    "items": {
+                                        "properties": {
+                                            "Depth": {
+                                                "description": "Depth in cm",
+                                                "example": 5.5,
+                                                "type": "number"
+                                            },
+                                            "Height": {
+                                                "description": "Height in cm",
+                                                "example": 3.4,
+                                                "type": "number"
+                                            },
+                                            "PackagingCode": {
+                                                "description": "Code describing physical packagine,  L52,L60,OS4",
+                                                "example": "L52",
+                                                "maxLength": 5,
+                                                "type": "string"
+                                            },
+                                            "Qty": {
+                                                "description": "Total number of items within a consigment",
+                                                "example": 343,
+                                                "type": "integer"
+                                            },
+                                            "SSCC": {
+                                                "description": "Unique Package ID",
+                                                "example": "0338877133",
+                                                "maxLength": 20,
+                                                "type": "string"
+                                            },
+                                            "Weight": {
+                                                "description": "NET Weight in Kg",
+                                                "example": 11.3,
+                                                "type": "number"
+                                            },
+                                            "Width": {
+                                                "description": "Width in cm",
+                                                "example": 4.5,
+                                                "type": "number"
+                                            }
+                                        },
+                                        "required": [
+                                            "Depth",
+                                            "Height",
+                                            "SSCC",
+                                            "Weight",
+                                            "Width",
+                                            "Qty"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "Priority": {
+                                    "description": "Priority of order - NORM (Default)",
+                                    "enum": [
+                                        "NORM",
+                                        "URGNT",
+                                        "HIGH"
+                                    ],
+                                    "example": "NORM",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "ReqType": {
+                                    "description": "Request Type - New or Update",
+                                    "enum": [
+                                        "NEW",
+                                        "UPD"
+                                    ],
+                                    "example": "NEW",
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "RetailID": {
+                                    "description": "Usually for BTB Customer to identify regular delivery customers that may require specific handling/Ops procedures (ECOM, ASOS)",
+                                    "example": "ECOM",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "Service": {
+                                    "description": "Dispatched service (may NOT match original request)",
+                                    "example": "RM58",
+                                    "maxLength": 10,
+                                    "type": "string"
+                                },
+                                "ShipDate": {
+                                    "description": "Date Shipped",
+                                    "type": "string"
+                                },
+                                "Stage": {
+                                    "description": "Order Stage",
+                                    "enum": [
+                                        "DISP",
+                                        "PICK",
+                                        "PACK",
+                                        "CANC"
+                                    ],
+                                    "maxLength": 5,
+                                    "type": "string"
+                                },
+                                "StockPool": {
+                                    "description": "Stock Pool",
+                                    "enum": [
+                                        "ECOM",
+                                        "WS",
+                                        "BULK"
+                                    ],
+                                    "example": "CUST1",
+                                    "maxLength": 15,
+                                    "type": "string"
+                                },
+                                "TotalWeight": {
+                                    "description": "In KG 2 dp",
+                                    "example": 12.44,
+                                    "type": "number"
+                                },
+                                "TrackingNumber": {
+                                    "description": "Carrier Tracking Number (ONLY Parent tracking number)",
+                                    "maxLength": 50,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "AccountID",
+                                "StockPool",
+                                "OrdType",
+                                "ReqType",
+                                "Class",
+                                "Service",
+                                "Brand",
+                                "EntityID",
+                                "ILGRef",
+                                "LocationID",
+                                "OrderNumber",
+                                "OrdRef1"
+                            ],
+                            "type": "object"
+                        },
+                        "type": "array"
+                    }
+                }
+            },
+            "success": {
+                "type": "object",
+                "properties": {
+                    "messages": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "CorrelationID": {
+                                    "type": "string",
+                                    "example": "fabfaa79-4092-417c-a41a-6e1aa09936b0"
+                                }
+                            },
+                            "required": [
+                                "CorrelationID"
+                            ]
+                        }
+                    }
+                }
+            },
+            "errors": {
+                "type": "object",
+                "properties": {
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "detail": {
+                                    "type": "string",
+                                    "example": "AccountID is mandatory"
+                                }
+                            },
+                            "required": [
+                                "detail"
+                            ]
+                        }
+                    }
+                }
+            },
+            "goodsOut-req-csv": {
+                "type": "string",
+                "example": "AccountID,Addresses_Add1,Addresses_Add2,Addresses_Add3,Addresses_AddType,Addresses_City,Addresses_Country,Addresses_CountryCode,Addresses_Email,Addresses_Firstname,Addresses_Lastname,Addresses_Mobile,Addresses_Name,Addresses_Phone,Addresses_Postcode,Addresses_State,Addresses_Title,Brand,Carrier,Cfields_Field,Cfields_FldType,Cfields_FValue,Channel,Class,CorrelationID,CreatedDate,DDP,DueOutDate,EntityID,ExpDelDate,InsValue,LocationID,Notes,oOrderLines_AltLineID,oOrderLines_AltProductID,oOrderLines_Cfields_Field,oOrderLines_Cfields_FldType,oOrderLines_Cfields_FValue,oOrderLines_LineNumber,oOrderLines_OtherLineTotal,oOrderLines_OtherUnitPrice,oOrderLines_ProductID,oOrderLines_Qty,oOrderLines_SalesLineTotal,oOrderLines_SalesUnitPrice,oOrderLines_UoM,OrdNumber,OrdRef1,OrdRef2,OrdRef3,OrdType,OtherCurr,OtherValue,Priority,ReqType,RetailID,SalesCurr,SalesValue,Service,StockPool,Summary\nCUST1,13 Hargreaves Ave,BigTown,Nr Waitrose,SHIP,Crawley,United Kingdom,GB,ME@mydomain.com,Julio,Stavros,07323 323564,The Clothing Company,0181 333 2233,RH10 1XY,West Sussex,Mr,MyFirstBrand,UPS,GIFT1,ATT,Happy Christmas Peter,ShopEU,ECOM,9ed2b057-342f-4838-860b-4ac37fddf007,2022-01-27T13:29:59Z,1,2022-01-28,SO238812,2022-01-28,1.24,NORTHAMPTON,Special order to VIP,13,JG668872,GIFT1,ATT,Happy Christmas Peter,1,29.28,2.44,10056758,12,414.6,34.55,EACH,SO238812,XD33093,AOS687668783,TEST,SO,GBP,1.24,NORM,NEW,ECOM,GBP,1232.44,NextDay,CUST1,Ladies Outerwear\n"
+            },
+            "goodsOut-conf-csv": {
+                "type": "string",
+                "example": "AccountID,Brand,Carrier,Class,CorrelationID,CreatedDate,DueOutDate,EntityID,ExpDelDate,GORespLines_LineNumber,GORespLines_PrdID,GORespLines_Qty,GORespLines_EachQty,GORespLines_SSCC,GORespLines_BatchID,GORespLines_DateExpiry,ILGRef,LocationID,OrdNumber,OrdRef1,OrdRef2,OrdRef3,OrdType,Packages_Depth,Packages_Height,Packages_PackagingCode,Packages_Qty,Packages_SSCC,Packages_Weight,Packages_Width,Priority,ReqType,RetailID,Service,ShipDate,Stage,StockPool,TotalWeight,TrackingNumber\nCUST1,MyFirstBrand,UPS,ECOM,9ed2b057-342f-4838-860b-4ac37fddf007,2022-01-27T13:29:59Z,2022-01-28,SO238812,2022-01-28,1,GO2333,1,40,0338877133,12121221,2030-01-01T23:59:59,,NORTHAMPTON,SO238812,XD33093,AOS687668783,TEST,SO,5.5,3.4,L52,343,0338877133,11.3,4.5,NORM,NEW,ECOM,RM58,,,CUST1,12.44,\n"
+            },
+            "goodsIn-req-csv": {
+                "type": "string",
+                "example": "AccountID,Cfields_Field,Cfields_FldType,Cfields_FValue,Class,CorrelationID,EntityID,ExpDelDate,iOrderLines_AltLineID,iOrderLines_AltProductID,iOrderLines_BatchID,iOrderLines_Cfields_Field,iOrderLines_Cfields_FldType,iOrderLines_Cfields_FValue,iOrderLines_LineNumber,iOrderLines_LineDelDate,iOrderLines_PrdStatus,iOrderLines_PrdLife,iOrderLines_ProductID,iOrderLines_ProductionDate,iOrderLines_Qty,iOrderLines_UoM,LocationID,Notes,OrdNumber,OrdRef1,OrdRef2,OrdRef3,OrdType,ReqType,StockPool\nCUST1,GIFT1,ATT,Happy Christmas Peter,ECOM,9ed2b057-342f-4838-860b-4ac37fddf007,PO238812,2022-01-28,13,JG668872,BTE76F5F,GIFT1,ATT,Happy Christmas Peter,1,2022-02-11,GOOD,45,10056758,2022-02-11,12,EACH,NORTHAMPTON,Special order to VIP,PO238812,XD33093,AOS687668783,TEST,PO,NEW,CUST1\n"
+            },
+            "goodsIn-conf-csv": {
+                "type": "string",
+                "example": "AccountID,Cfields_Field,Cfields_FldType,Cfields_FValue,Class,CorrelationID,EntityID,RecDate,GIRespLines_AltLineID,GIRespLines_AltProductID,GIRespLines_BatchID,GIRespLines_Cfields_Field,GIRespLines_Cfields_FldType,GIRespLines_Cfields_FValue,GIRespLines_LineNumber,GIRespLines_LineRecDate,GIRespLines_PrdStatus,GIRespLines_PrdLife,GIRespLines_ProductID,GIRespLines_ProductionDate,GIRespLines_EachQty,GIRespLines_Qty,GIRespLines_UoM,GIRespLines_Reason,LocationID,Notes,OrdNumber,OrdRef1,OrdRef2,OrdRef3,OrdType,ReqType,StockPool\nCUST1,GIFT1,ATT,Happy Christmas Peter,ECOM,9ed2b057-342f-4838-860b-4ac37fddf007,PO238812,2022-01-28,13,JG668872,BTE76F5F,GIFT1,ATT,Happy Christmas Peter,1,2022-02-11,GOOD,45,10056758,2022-02-11,12,12,EACH,2022-02-11,NORTHAMPTON,Special order to VIP,PO238812,XD33093,AOS687668783,TEST,PO,NEW,CUST1\n"
+            },
+            "masterData-req-csv": {
+                "type": "string",
+                "example": "AccountID,Alias1,Alias2,BatchPrd,HazardPrd,Brand,COO,Category1,Category2,Commodity,Cost,Currency,DGClass,DGPack,DGUNNumber,DiscDate,EABarcode,EADepth,EAHeight,EAWeight,EAWidth,EAQty,ExpirePrd,INBarcode,INQty,LongDesc,MIDCode,OUBarcode,OUDepth,OUHeight,OUQty,OUWeight,OUWidth,UoM,PrdClass,PrdLife,PrdStatus,PrdType,ProductID,ReqType,SerialPrd,ShortDesc,StockPool,CorrelationID,EntityID,Cfields_Field,Cfields_FldType,Cfields_FValue,KitPrds_KitPrdID,KitPrds_KitQTY\nCUST1,PRD33440,NA5799844,0,0,MyFirstBrand,IT,Fashion,Wearables,1006301100,2.33,GBP,4,II,UN3349,2050-12-31,6887667733,3,20,10,10,10,0,8708928943,20,Faux Leather Clutch bag Green (xxl 3 extra pockets),CNAOSGAR5GUA,80082477444,3904,6000,400,4010,4000,80082477444,SFAST,365,ACTI,STOCK,PETER18,UPD,0,PETER CHANGE BLUE,CUST1,9ed2b057-342f-4838-860b-4ac37fddf007,9ed2b057-342f-4838-860b-4ac37fddf007,GIFT1,ATT,Happy Christmas Peter,DS89032,10\n"
+            },
+            "stockMovement-csv": {
+                "type": "string",
+                "example": "AccountID,CorrelationID,EntityID,MoveType,TrnDate,Reason,Comment,Moves_ProductID,Moves_LongDesc,Moves_Qty,Moves_FrmWH,Moves_FrmPool,Moves_FrmLoc,Moves_FrmStatus,Moves_ToWH,Moves_ToPool,Moves_ToLoc,Moves_ToStatus\nCUST1,9ed2b057-342f-4838-860b-4ac37fddf007,PO238812,ADJ,2022-01-28,string,,,,,,,,,,,,\n"
+            },
+            "return-req-csv": {
+                "type": "string",
+                "example": "AccountID,Cfields_Field,Cfields_FldType,Cfields_FValue,Class,CorrelationID,EntityID,ExpDelDate,rOrderLines_AltLineID,rOrderLines_AltProductID,rOrderLines_BatchID,rOrderLines_Cfields_Field,rOrderLines_Cfields_FldType,rOrderLines_Cfields_FValue,rOrderLines_LineNumber,rOrderLines_LineDelDate,rOrderLines_PrdStatus,rOrderLines_ProductID,rOrderLines_ProductionDate,rOrderLines_Qty,rOrderLines_Reason,rOrderLines_UoM,LocationID,ILGRef,Notes,OrdNumber,OrdRef1,OrdRef2,OrdRef3,OrdType,ReqType,StockPool\nCUST1,GIFT1,ATT,Happy Christmas Peter,WS,9ed2b057-342f-4838-860b-4ac37fddf007,PO238812,2022-01-28,13,JG668872,BTE76F5F,GIFT1,ATT,Happy Christmas Peter,1,2022-02-11,GOOD,10056758,2022-02-11,12,Reason for item return,EACH,NORTHAMPTON,NHTR1234567,Special order to VIP,RTN238872,XD33093,AOS687668783,TEST,RETK,NEW,CUST1\n"
+            },
+            "return-conf-csv": {
+                "type": "string",
+                "example": "AccountID,Cfields_Field,Cfields_FldType,Cfields_FValue,Class,CorrelationID,EntityID,RecDate,GIRespLines_AltLineID,GIRespLines_AltProductID,GIRespLines_BatchID,GIRespLines_Cfields_Field,GIRespLines_Cfields_FldType,GIRespLines_Cfields_FValue,GIRespLines_LineNumber,GIRespLines_LineRecDate,GIRespLines_PrdStatus,GIRespLines_PrdLife,GIRespLines_ProductID,GIRespLines_ProductionDate,GIRespLines_EachQty,GIRespLines_Qty,GIRespLines_UoM,GIRespLines_Reason,LocationID,Notes,OrdNumber,OrdRef1,OrdRef2,OrdRef3,OrdType,ReqType,StockPool\nCUST1,GIFT1,ATT,Happy Christmas Peter,ECOM,9ed2b057-342f-4838-860b-4ac37fddf007,PO238812,2022-01-28,13,JG668872,BTE76F5F,GIFT1,ATT,Happy Christmas Peter,1,2022-02-11,GOOD,45,10056758,2022-02-11,12,12,EACH,2022-02-11,NORTHAMPTON,Special order to VIP,PO238812,XD33093,AOS687668783,TEST,PO,NEW,CUST1\n"
+            },
+            "workOrder-req-csv": {
+                "type": "string",
+                "example": "AccountID,CreatedDate,FinishedGoods_ExpDelDate,FinishedGoods_FGParts_ProductID,FinishedGoods_FGParts_Qty,FinishedGoods_Life,FinishedGoods_LineNumber,FinishedGoods_ProductID,FinishedGoods_Qty,LocationID,Notes,OrdNumber,OrdRef1,OrdRef2,OrdType,ReqType,StockPool\nCUST1,2022-01-27,2022-07-12,HR88493,3,365,1,FG668872,43,NORTHAMPTON,Works order special instructions,WO440982,XD33092,XD33092,WO,NEW,ECOM\n"
+            },
+            "workOrder-conf-csv": {
+                "type": "string",
+                "example": "AccountID,Brand,Carrier,Class,CorrelationID,CreatedDate,DueOutDate,EntityID,ExpDelDate,GORespLines_LineNumber,GORespLines_PrdID,GORespLines_Qty,GORespLines_EachQty,GORespLines_SSCC,GORespLines_BatchID,GORespLines_DateExpiry,ILGRef,LocationID,OrdNumber,OrdRef1,OrdRef2,OrdRef3,OrdType,Packages_Depth,Packages_Height,Packages_PackagingCode,Packages_Qty,Packages_SSCC,Packages_Weight,Packages_Width,Priority,ReqType,RetailID,Service,ShipDate,Stage,StockPool,TotalWeight,TrackingNumber\nCUST1,MyFirstBrand,UPS,ECOM,9ed2b057-342f-4838-860b-4ac37fddf007,2022-01-27T13:29:59Z,2022-01-28,SO238812,2022-01-28,1,GO2333,1,40,0338877133,12121221,2030-01-01T23:59:59,,NORTHAMPTON,SO238812,XD33093,AOS687668783,TEST,SO,5.5,3.4,L52,343,0338877133,11.3,4.5,NORM,NEW,ECOM,RM58,,,CUST1,12.44,\n"
+            },
+            "success-csv": {
+                "type": "string",
+                "example": "CorrelationID\nfabfaa79-4092-417c-a41a-6e1aa09936b0\n"
+            },
+            "errors-csv": {
+                "type": "string",
+                "example": "detail\nAccountID is mandatory\n"
+            }
+        },
+        "securitySchemes": {
+            "api_key": {
+                "type": "apiKey",
+                "name": "ilg-key",
+                "in": "header"
+            }
+        }
+    }
+}
