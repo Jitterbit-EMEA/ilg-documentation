@@ -21,7 +21,7 @@
     "tags": [
         {
             "name": "API",
-            "description": "ILG WMS API V2.0 Provides the capability to integrate with ILG's warehouse management system.",
+            "description": "ILG WMS API V2.0 Provides the capability to integrate with ILG's warehouse management system. ",
             "externalDocs": {
                 "description": "Find out more",
                 "url": ""
