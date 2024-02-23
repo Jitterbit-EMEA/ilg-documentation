@@ -2,20 +2,19 @@
     "openapi": "3.0.3",
     "info": {
         "title": "ILG WMS Schema documentation.",
-        "description": "ILG Provides the capability to integrate with ILG's warehouse management system. It supports the inbound requests for -\n\nThe authentication achieved is using the API key which will need to be requested from ILG support (email to [itsupport@ilguk.com](https://mailto:itsupport@ilguk.com))",
+        "description": "ILG WMS API V2.0 - Provides the capability to integrate with ILG's warehouse management system.\nThe API accepts the Request in JSON format and if the request is validated the API responds back with a correlation id.\n\nAuthentication is achieved using an API key which will need to be requested from ILG support",
         "termsOfService": "https://www.international-logistics-group.com/",
         "contact": {
             "email": "itsupport@ilguk.com"
         },
         "version": "1.0"
     },
-    "externalDocs": {
-        "description": "Please contact a member of the ILG support",
-        "url": "https://mailto:itsupport@ilguk.com"
-    },
     "servers": [
         {
             "url": "https://ilg372042.jitterbit.eu/apis-dev/2"
+        },
+        {
+            "url": "https://ilg372042.jitterbit.eu/apis-uat/2"
         }
     ],
     "tags": [
