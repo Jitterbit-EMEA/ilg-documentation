@@ -50,18 +50,7 @@
                 "tags": [
                     "JSON Schema reference"
                 ],
-                "summary": "API json schema reference and examples",
-                "description": "",
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "-": {
-                                "example": ""
-                            }
-                        }
-                    }
-                },
+                "summary": "json schema reference and examples",
                 "operationId": "json-examples",
                 "requestBody": {
                     "description": "ILG json examples for schema reference to field defenitions please see json-examples",
@@ -125,18 +114,7 @@
                 "tags": [
                     "CSV Schema reference"
                 ],
-                "summary": "Non API csv schema examples",
-                "description": "",
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "-": {
-                                "example": ""
-                            }
-                        }
-                    }
-                },
+                "summary": "csv schema examples",
                 "operationId": "csv-examples",
                 "requestBody": {
                     "description": "ILG csv examples for schema reference to field defenitions pleae see json-examples",
