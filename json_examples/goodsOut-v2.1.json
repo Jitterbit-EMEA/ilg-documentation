@@ -1,0 +1,83 @@
+{
+    "oOrders": [
+        {
+            "AccountID": "CUST1",
+            "Addresses": [
+                {
+                    "Add1": "13 Hargreaves Ave",
+                    "Add2": "BigTown",
+                    "Add3": "Nr Waitrose",
+                    "AddType": "SHIP",
+                    "City": "Crawley",
+                    "Country": "United Kingdom",
+                    "CountryCode": "GB",
+                    "Email": "ME@mydomain.com",
+                    "Firstname": "Julio",
+                    "Lastname": "Stavros",
+                    "Mobile": "07323 323564",
+                    "Name": "The Clothing Company",
+                    "Phone": "0181 333 2233",
+                    "Postcode": "RH10 1XY",
+                    "State": "West Sussex",
+                    "Title": "Mr"
+                }
+            ],
+            "Brand": "MyFirstBrand",
+            "Carrier": "UPS",
+            "Cfields": [
+                {
+                    "Field": "GIFT1",
+                    "FldType": "ATT",
+                    "FValue": "Happy Christmas Peter"
+                }
+            ],
+            "Channel": "ShopEU",
+            "Class": "ECOM",
+            "CorrelationID": "9ed2b057-342f-4838-860b-4ac37fddf007",
+            "CreatedDate": "2022-01-27T13:29:59Z",
+            "DDP": 1,
+            "DueOutDate": "2022-01-28",
+            "EntityID": "SO238812",
+            "ExpDelDate": "2022-01-28",
+            "InsValue": 1.24,
+            "LocationID": "NORTHAMPTON",
+            "Notes": "Special order to VIP",
+            "oOrderLines": [
+                {
+                    "AltLineID": 13,
+                    "AltProductID": "JG668872",
+                    "Cfields": [
+                        {
+                            "Field": "GIFT1",
+                            "FldType": "ATT",
+                            "FValue": "Happy Christmas Peter"
+                        }
+                    ],
+                    "LineNumber": 1,
+                    "OtherLineTotal": 29.28,
+                    "OtherUnitPrice": 2.44,
+                    "ProductID": "10056758",
+                    "Qty": 12,
+                    "SalesLineTotal": 414.6,
+                    "SalesUnitPrice": 34.55,
+                    "UoM": "EACH"
+                }
+            ],
+            "OrdNumber": "SO238812",
+            "OrdRef1": "XD33093",
+            "OrdRef2": "AOS687668783",
+            "OrdRef3": "TEST",
+            "OrdType": "SO",
+            "OtherCurr": "GBP",
+            "OtherValue": 1.24,
+            "Priority": "NORM",
+            "ReqType": "NEW",
+            "RetailID": "ECOM",
+            "SalesCurr": "GBP",
+            "SalesValue": 1232.44,
+            "Service": "NextDay",
+            "StockPool": "CUST1",
+            "Summary": "Ladies Outerwear"
+        }
+    ]
+}

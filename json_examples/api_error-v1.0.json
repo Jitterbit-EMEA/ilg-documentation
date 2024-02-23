@@ -1,0 +1,7 @@
+{
+    "errors": [
+        {
+            "detail": "AccountID is mandatory"
+        }
+    ]
+}

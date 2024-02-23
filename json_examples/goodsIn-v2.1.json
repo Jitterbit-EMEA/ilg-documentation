@@ -1,0 +1,49 @@
+{
+    "iOrders": [
+        {
+            "AccountID": "CUST1",
+            "Cfields": [
+                {
+                    "Field": "GIFT1",
+                    "FldType": "ATT",
+                    "FValue": "Happy Christmas Peter"
+                }
+            ],
+            "Class": "ECOM",
+            "CorrelationID": "9ed2b057-342f-4838-860b-4ac37fddf007",
+            "EntityID": "PO238812",
+            "ExpDelDate": "2022-01-28",
+            "iOrderLines": [
+                {
+                    "AltLineID": 13,
+                    "AltProductID": "JG668872",
+                    "BatchID": "BTE76F5F",
+                    "Cfields": [
+                        {
+                            "Field": "GIFT1",
+                            "FldType": "ATT",
+                            "FValue": "Happy Christmas Peter"
+                        }
+                    ],
+                    "LineNumber": 1,
+                    "LineDelDate": "2022-02-11",
+                    "PrdStatus": "GOOD",
+                    "PrdLife": 45,
+                    "ProductID": "10056758",
+                    "ProductionDate": "2022-02-11",
+                    "Qty": 12,
+                    "UoM": "EACH"
+                }
+            ],
+            "LocationID": "NORTHAMPTON",
+            "Notes": "Special order to VIP",
+            "OrdNumber": "PO238812",
+            "OrdRef1": "XD33093",
+            "OrdRef2": "AOS687668783",
+            "OrdRef3": "TEST",
+            "OrdType": "PO",
+            "ReqType": "NEW",
+            "StockPool": "CUST1"
+        }
+    ]
+}

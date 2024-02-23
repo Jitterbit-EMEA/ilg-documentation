@@ -1,0 +1,2 @@
+AccountID,CorrelationID,EntityID,MoveType,TrnDate,Reason,Comment,Moves_ProductID,Moves_LongDesc,Moves_Qty,Moves_FrmWH,Moves_FrmPool,Moves_FrmLoc,Moves_FrmStatus,Moves_ToWH,Moves_ToPool,Moves_ToLoc,Moves_ToStatus
+CUST1,9ed2b057-342f-4838-860b-4ac37fddf007,PO238812,ADJ,2022-01-28,string,,,,,,,,,,,,

@@ -1,0 +1,2 @@
+AccountID,CreatedDate,FinishedGoods_ExpDelDate,FinishedGoods_FGParts_ProductID,FinishedGoods_FGParts_Qty,FinishedGoods_Life,FinishedGoods_LineNumber,FinishedGoods_ProductID,FinishedGoods_Qty,LocationID,Notes,OrdNumber,OrdRef1,OrdRef2,OrdType,ReqType,StockPool
+CUST1,2022-01-27,2022-07-12,HR88493,3,365,1,FG668872,43,NORTHAMPTON,Works order special instructions,WO440982,XD33092,XD33092,WO,NEW,ECOM

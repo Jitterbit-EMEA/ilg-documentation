@@ -1,0 +1,53 @@
+{
+    "GOResp": [
+        {
+            "AccountID": "CUST1",
+            "Brand": "MyFirstBrand",
+            "Carrier": "UPS",
+            "Class": "ECOM",
+            "CorrelationID": "9ed2b057-342f-4838-860b-4ac37fddf007",
+            "CreatedDate": "2022-01-27T13:29:59Z",
+            "DueOutDate": "2022-01-28",
+            "EntityID": "SO238812",
+            "ExpDelDate": "2022-01-28",
+            "GORespLines": [
+                {
+                    "LineNumber": 1,
+                    "PrdID": "GO2333",
+                    "Qty": 1,
+                    "EachQty": 40,
+                    "SSCC": "0338877133",
+                    "BatchID": "12121221",
+                    "DateExpiry": "2030-01-01T23:59:59"
+                }
+            ],
+            "ILGRef": null,
+            "LocationID": "NORTHAMPTON",
+            "OrdNumber": "SO238812",
+            "OrdRef1": "XD33093",
+            "OrdRef2": "AOS687668783",
+            "OrdRef3": "TEST",
+            "OrdType": "SO",
+            "Packages": [
+                {
+                    "Depth": 5.5,
+                    "Height": 3.4,
+                    "PackagingCode": "L52",
+                    "Qty": 343,
+                    "SSCC": "0338877133",
+                    "Weight": 11.3,
+                    "Width": 4.5
+                }
+            ],
+            "Priority": "NORM",
+            "ReqType": "NEW",
+            "RetailID": "ECOM",
+            "Service": "RM58",
+            "ShipDate": null,
+            "Stage": null,
+            "StockPool": "CUST1",
+            "TotalWeight": 12.44,
+            "TrackingNumber": null
+        }
+    ]
+}

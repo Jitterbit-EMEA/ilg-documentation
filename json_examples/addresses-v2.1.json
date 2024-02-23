@@ -1,0 +1,22 @@
+{
+    "addresses": [
+        {
+            "Add1": "13 Hargreaves Ave",
+            "Add2": "BigTown",
+            "Add3": "Nr Waitrose",
+            "AddType": "SHIP",
+            "City": "Crawley",
+            "Country": "United Kingdom",
+            "CountryCode": "GB",
+            "Email": "ME@mydomain.com",
+            "Firstname": "Julio",
+            "Lastname": "Stavros",
+            "Mobile": "07323 323564",
+            "Name": "The Clothing Company",
+            "Phone": "0181 333 2233",
+            "Postcode": "RH10 1XY",
+            "State": "West Sussex",
+            "Title": "Mr"
+        }
+    ]
+}

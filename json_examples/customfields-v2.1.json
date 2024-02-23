@@ -1,0 +1,13 @@
+{
+    "addresses": [
+        {
+            "customFields": [
+                {
+                    "FValue": "Happy Christmas Peter",
+                    "Field": "GIFT1",
+                    "FldType": "SPPCK"
+                }
+            ]
+        }
+    ]
+}

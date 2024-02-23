@@ -1,0 +1,64 @@
+{
+    "Products": [
+        {
+            "AccountID": "CUST1",
+            "Alias1": "PRD33440",
+            "Alias2": "NA5799844",
+            "BatchPrd": 0,
+            "HazardPrd": 0,
+            "Brand": "MyFirstBrand",
+            "COO": "IT",
+            "Category1": "Fashion",
+            "Category2": "Wearables",
+            "Commodity": "1006301100",
+            "Cost": 2.33,
+            "Currency": "GBP",
+            "DGClass": 4,
+            "DGPack": "II",
+            "DGUNNumber": "UN3349",
+            "DiscDate": "2050-12-31",
+            "EABarcode": "6887667733",
+            "EADepth": 3,
+            "EAHeight": 20,
+            "EAWeight": 10,
+            "EAWidth": 10,
+            "EAQty": 10,
+            "ExpirePrd": 0,
+            "INBarcode": "8708928943",
+            "INQty": 20,
+            "LongDesc": "Faux Leather Clutch bag Green (xxl 3 extra pockets)",
+            "MIDCode": "CNAOSGAR5GUA",
+            "OUBarcode": "80082477444",
+            "OUDepth": 3904,
+            "OUHeight": 6000,
+            "OUQty": 400,
+            "OUWeight": 4010,
+            "OUWidth": 4000,
+            "UoM": "80082477444",
+            "PrdClass": "SFAST",
+            "PrdLife": 365,
+            "PrdStatus": "ACTI",
+            "PrdType": "STOCK",
+            "ProductID": "PETER18",
+            "ReqType": "UPD",
+            "SerialPrd": 0,
+            "ShortDesc": "PETER CHANGE BLUE",
+            "StockPool": "CUST1",
+            "CorrelationID": "9ed2b057-342f-4838-860b-4ac37fddf007",
+            "EntityID": "9ed2b057-342f-4838-860b-4ac37fddf007",
+            "Cfields": [
+                {
+                    "Field": "GIFT1",
+                    "FldType": "ATT",
+                    "FValue": "Happy Christmas Peter"
+                }
+            ],
+            "KitPrds": [
+                {
+                    "KitPrdID": "DS89032",
+                    "KitQTY": 10
+                }
+            ]
+        }
+    ]
+}

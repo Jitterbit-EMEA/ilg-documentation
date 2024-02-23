@@ -1,0 +1,28 @@
+{
+    "sMoves": [
+        {
+            "AccountID": "CUST1",
+            "CorrelationID": "9ed2b057-342f-4838-860b-4ac37fddf007",
+            "EntityID": "PO238812",
+            "MoveType": "ADJ",
+            "TrnDate": "2022-01-28",
+            "Reason": "string",
+            "Comment": null,
+            "Moves": [
+                {
+                    "ProductID": null,
+                    "LongDesc": null,
+                    "Qty": null,
+                    "FrmWH": null,
+                    "FrmPool": null,
+                    "FrmLoc": null,
+                    "FrmStatus": null,
+                    "ToWH": null,
+                    "ToPool": null,
+                    "ToLoc": null,
+                    "ToStatus": null
+                }
+            ]
+        }
+    ]
+}
