@@ -2,7 +2,7 @@
     "openapi": "3.0.3",
     "info": {
         "title": "ILG WMS Schema documentation.",
-        "description": "ILG WMS API V2.0 - Provides the capability to integrate with ILG's warehouse management system.\nThe API accepts the Request in JSON format and if the request is validated the API responds back with a correlation id.\n\nAuthentication is achieved using an API key which will need to be requested from [ILG Support](mailto:itsupport@ilguk.com)\n\nSupporting Documentation links:\n\n[Mapping Template](https://jitterbit-emea.github.io/ilg-documentation/supporting_docs/mapping_template.xlsx)\n\n[Available Interfaces](https://jitterbit-emea.github.io/ilg-documentation/supporting_docs/available_interfaces.pdf)",
+        "description": "ILG WMS API V2.0 - Provides the capability to integrate with ILG's warehouse management system.\nThe API accepts the Request in JSON format and if the request is validated the API responds back with a correlation id.\n\nAuthentication is achieved using an API key which will need to be requested from [ILG Support](mailto:itsupport@ilguk.com)\n\nSupporting Documentation links:\n\n[Mapping Template](https://github.com/Jitterbit-EMEA/ilg-documentation/tree/master/supporting_docs/mapping_template.xlsx)\n\n[Available Interfaces](https://github.com/Jitterbit-EMEA/ilg-documentation/tree/master/supporting_docs/available_interfaces.pdf)",
         "termsOfService": "https://www.international-logistics-group.com/",
         "contact": {
             "name": "International Logistics Group",
@@ -31,7 +31,7 @@
             "name": "JSON Schema reference",
             "externalDocs": {
                 "description": "Download examples",
-                "url": "https://jitterbit-emea.github.io/ilg-documentation/json_examples/"
+                "url": "https://github.com/Jitterbit-EMEA/ilg-documentation/tree/master/json_examples"
             },
             "description": "ILG's common data model schemas for mapping purposes across all interface types"
         },
@@ -39,7 +39,7 @@
             "name": "CSV Schema reference",
             "externalDocs": {
                 "description": "Download examples",
-                "url": "https://jitterbit-emea.github.io/ilg-documentation/csv_examples/"
+                "url": "https://github.com/Jitterbit-EMEA/ilg-documentation/tree/master/csv_examples"
             },
             "description": "ILG's common data model schemas for mapping purposes across all interface types"
         }
